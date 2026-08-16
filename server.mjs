@@ -13,6 +13,7 @@ import http from 'node:http';
 import fs from 'node:fs/promises';
 import path from 'node:path';
 import { fileURLToPath, pathToFileURL } from 'node:url';
+import { startRefresh, isRunning, getRankings, getStatus } from './lib/orchestrator.js';
 
 // ============================================================
 // config — environment variables
@@ -233,6 +234,25 @@ async function route(req, res) {
   if (req.method === 'GET' && url.pathname === '/') return serveIndex(res);
   if (req.method === 'GET' && url.pathname === '/api/health') {
     return sendJson(res, 200, { ok: true, node: process.version });
+  }
+  if (req.method === 'GET' && url.pathname === '/api/rankings') {
+    try {
+      return sendJson(res, 200, await getRankings());
+    } catch (err) {
+      console.error('[server] /api/rankings failed:', err);
+      return sendJson(res, 500, { error: 'rankings unavailable' });
+    }
+  }
+  if (req.method === 'POST' && url.pathname === '/api/refresh') {
+    return sendJson(res, 200, startRefresh());
+  }
+  if (req.method === 'GET' && url.pathname === '/api/status') {
+    try {
+      return sendJson(res, 200, await getStatus());
+    } catch (err) {
+      console.error('[server] /api/status failed:', err);
+      return sendJson(res, 500, { error: 'status unavailable' });
+    }
   }
   return sendJson(res, 404, { error: 'not found', path: url.pathname });
 }
