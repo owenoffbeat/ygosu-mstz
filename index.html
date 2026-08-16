@@ -1,0 +1,936 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>스타대학 활동 랭킹</title>
+<style>
+  /* ============ design tokens ============ */
+  :root {
+    --bg: #0c0f16;
+    --bg-2: #101827;
+    --card: #141a26;
+    --card-2: #182030;
+    --border: #232c3f;
+    --border-soft: #1d2534;
+    --text: #e9edf5;
+    --text-dim: #9aa5b8;
+    --text-faint: #66718a;
+    --accent: #4f8cff;
+    --accent-2: #2dd4bf;
+    --gold: #f6c453;
+    --silver: #c3ccda;
+    --bronze: #d08a5a;
+    --danger: #ff7a7a;
+    --radius: 14px;
+    --shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html { color-scheme: dark; }
+
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Malgun Gothic",
+      "Apple SD Gothic Neo", sans-serif;
+    background: radial-gradient(1200px 600px at 85% -10%, var(--bg-2), transparent 60%),
+      radial-gradient(900px 500px at -10% 110%, #101b2e, transparent 55%), var(--bg);
+    color: var(--text);
+    line-height: 1.5;
+    min-height: 100vh;
+    padding: 24px 16px 40px;
+  }
+
+  .wrap { max-width: 1080px; margin: 0 auto; }
+
+  /* ============ header ============ */
+  .topbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    flex-wrap: wrap;
+    margin-bottom: 18px;
+  }
+
+  .brand { display: flex; align-items: center; gap: 14px; }
+
+  .brand-mark {
+    width: 46px;
+    height: 46px;
+    border-radius: 13px;
+    display: grid;
+    place-items: center;
+    color: #fff;
+    background: linear-gradient(135deg, var(--accent), var(--accent-2));
+    box-shadow: 0 6px 18px rgba(79, 140, 255, 0.35);
+    flex: none;
+  }
+
+  .brand-mark svg { width: 24px; height: 24px; }
+
+  h1 { font-size: 21px; font-weight: 800; letter-spacing: -0.02em; }
+
+  .sub { font-size: 12.5px; color: var(--text-dim); margin-top: 2px; }
+
+  .topbar-right { display: flex; align-items: center; gap: 14px; flex-wrap: wrap; }
+
+  .updated { font-size: 12.5px; color: var(--text-dim); font-variant-numeric: tabular-nums; }
+
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    border: 0;
+    cursor: pointer;
+    font: inherit;
+    font-size: 13.5px;
+    font-weight: 700;
+    color: #fff;
+    padding: 9px 16px;
+    border-radius: 10px;
+    background: linear-gradient(135deg, var(--accent), #3b6fd8);
+    box-shadow: 0 4px 14px rgba(79, 140, 255, 0.3);
+    transition: transform 0.15s ease, filter 0.15s ease, opacity 0.15s ease;
+  }
+
+  .btn svg { width: 15px; height: 15px; }
+
+  .btn:hover:not(:disabled) { transform: translateY(-1px); filter: brightness(1.08); }
+
+  .btn:disabled {
+    cursor: not-allowed;
+    opacity: 0.55;
+    background: linear-gradient(135deg, #3a4a6b, #2c3a55);
+    box-shadow: none;
+  }
+
+  /* ============ progress card ============ */
+  .progress-card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 14px 16px;
+    margin-bottom: 18px;
+    box-shadow: var(--shadow);
+  }
+
+  .progress-head {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    flex-wrap: wrap;
+    margin-bottom: 10px;
+  }
+
+  .phase {
+    font-size: 13.5px;
+    font-weight: 800;
+    color: var(--accent-2);
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+  }
+
+  .phase::before {
+    content: "";
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--accent-2);
+    flex: none;
+  }
+
+  .phase.is-running::before { animation: pulse 1.4s ease-in-out infinite; }
+
+  .counts { font-size: 12.5px; color: var(--text-dim); font-variant-numeric: tabular-nums; }
+
+  .err-chip {
+    margin-left: auto;
+    font-size: 11.5px;
+    font-weight: 700;
+    color: var(--danger);
+    background: rgba(255, 122, 122, 0.1);
+    border: 1px solid rgba(255, 122, 122, 0.35);
+    padding: 2px 9px;
+    border-radius: 999px;
+  }
+
+  .progress-track {
+    height: 8px;
+    border-radius: 4px;
+    background: #0a0e16;
+    border: 1px solid var(--border-soft);
+    overflow: hidden;
+  }
+
+  .progress-fill {
+    height: 100%;
+    width: 0%;
+    border-radius: 4px;
+    background: linear-gradient(90deg, var(--accent), var(--accent-2));
+    transition: width 0.5s ease;
+  }
+
+  .progress-fill.is-running { animation: pulse 1.4s ease-in-out infinite; }
+
+  .progress-sub {
+    margin-top: 8px;
+    font-size: 11.5px;
+    color: var(--text-faint);
+    font-variant-numeric: tabular-nums;
+  }
+
+  /* ============ banner ============ */
+  .banner {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background: rgba(255, 122, 122, 0.08);
+    border: 1px solid rgba(255, 122, 122, 0.4);
+    color: var(--danger);
+    font-size: 13px;
+    font-weight: 600;
+    border-radius: 12px;
+    padding: 11px 14px;
+    margin-bottom: 18px;
+  }
+
+  .banner svg { width: 16px; height: 16px; flex: none; }
+
+  /* ============ metric cards ============ */
+  .cards {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 16px;
+  }
+
+  .card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 16px;
+    box-shadow: var(--shadow);
+    min-width: 0;
+  }
+
+  .card-head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    flex-wrap: wrap;
+    margin-bottom: 12px;
+  }
+
+  .card-title { display: flex; align-items: center; gap: 10px; }
+
+  .card-icon {
+    width: 34px;
+    height: 34px;
+    border-radius: 10px;
+    display: grid;
+    place-items: center;
+    color: #fff;
+    background: linear-gradient(135deg, #2b3a5c, #1d2740);
+    border: 1px solid var(--border);
+    flex: none;
+  }
+
+  .card-icon svg { width: 17px; height: 17px; }
+
+  .card h2 { font-size: 15px; font-weight: 800; letter-spacing: -0.01em; }
+
+  .tabs {
+    display: inline-flex;
+    gap: 2px;
+    background: #0e1320;
+    border: 1px solid var(--border-soft);
+    border-radius: 10px;
+    padding: 3px;
+  }
+
+  .tab {
+    border: 0;
+    background: transparent;
+    color: var(--text-dim);
+    font: inherit;
+    font-size: 12px;
+    font-weight: 700;
+    padding: 5px 12px;
+    border-radius: 7px;
+    cursor: pointer;
+    transition: background 0.15s ease, color 0.15s ease;
+  }
+
+  .tab:hover { color: var(--text); }
+
+  .tab.is-active {
+    background: linear-gradient(135deg, var(--accent), #3b6fd8);
+    color: #fff;
+  }
+
+  /* ============ tables ============ */
+  .tbl table {
+    width: 100%;
+    border-collapse: collapse;
+    table-layout: fixed;
+  }
+
+  .tbl thead th {
+    font-size: 11px;
+    font-weight: 700;
+    color: var(--text-faint);
+    text-align: left;
+    padding: 6px 8px;
+    border-bottom: 1px solid var(--border);
+    letter-spacing: 0.04em;
+  }
+
+  .tbl thead th.c-rank { width: 52px; }
+  .tbl thead th.c-count { width: 46%; text-align: right; }
+
+  .tbl tbody td {
+    padding: 7px 8px;
+    border-bottom: 1px solid var(--border-soft);
+    font-size: 13px;
+    vertical-align: middle;
+  }
+
+  .tbl tbody tr:last-child td { border-bottom: 0; }
+
+  .tbl tbody tr { transition: background 0.12s ease; }
+
+  .tbl tbody tr:hover { background: var(--card-2); }
+
+  .c-rank { width: 52px; }
+
+  .rank {
+    display: inline-grid;
+    place-items: center;
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
+    font-size: 11.5px;
+    font-weight: 800;
+    color: var(--text-faint);
+    background: transparent;
+  }
+
+  .rank.r1 {
+    background: linear-gradient(135deg, #ffe08a, var(--gold));
+    color: #3a2c05;
+    box-shadow: 0 0 10px rgba(246, 196, 83, 0.45);
+  }
+
+  .rank.r2 {
+    background: linear-gradient(135deg, #e8eef7, var(--silver));
+    color: #2c3442;
+    box-shadow: 0 0 8px rgba(195, 204, 218, 0.35);
+  }
+
+  .rank.r3 {
+    background: linear-gradient(135deg, #e8a97e, var(--bronze));
+    color: #3d2410;
+    box-shadow: 0 0 8px rgba(208, 138, 90, 0.35);
+  }
+
+  .c-nick {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    font-weight: 600;
+  }
+
+  .c-count { text-align: right; }
+
+  .c-count .bar {
+    display: inline-block;
+    vertical-align: middle;
+    width: calc(100% - 44px);
+    max-width: 120px;
+    height: 6px;
+    border-radius: 3px;
+    background: #0a0e16;
+    border: 1px solid var(--border-soft);
+    overflow: hidden;
+  }
+
+  .c-count .bar-fill {
+    display: block;
+    height: 100%;
+    border-radius: 3px;
+    background: linear-gradient(90deg, var(--accent), var(--accent-2));
+    transition: width 0.4s ease;
+  }
+
+  .c-count .num {
+    display: inline-block;
+    width: 36px;
+    text-align: right;
+    font-size: 12.5px;
+    font-weight: 700;
+    color: var(--text-dim);
+    font-variant-numeric: tabular-nums;
+  }
+
+  .tbl-empty {
+    padding: 26px 10px;
+    text-align: center;
+    font-size: 12.5px;
+    color: var(--text-faint);
+  }
+
+  /* ============ footer ============ */
+  .foot {
+    margin-top: 26px;
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 16px 18px;
+    box-shadow: var(--shadow);
+  }
+
+  .foot h2 { font-size: 13px; font-weight: 800; margin-bottom: 8px; color: var(--text-dim); }
+
+  .foot ul { list-style: none; }
+
+  .foot li {
+    font-size: 12px;
+    color: var(--text-faint);
+    padding-left: 16px;
+    position: relative;
+    margin: 4px 0;
+  }
+
+  .foot li::before {
+    content: "";
+    position: absolute;
+    left: 2px;
+    top: 7px;
+    width: 6px;
+    height: 6px;
+    border-radius: 2px;
+    background: linear-gradient(135deg, var(--accent), var(--accent-2));
+  }
+
+  /* ============ responsive ============ */
+  @media (max-width: 760px) {
+    body { padding: 16px 10px 32px; }
+    .topbar { flex-direction: column; align-items: flex-start; }
+    .topbar-right { width: 100%; justify-content: space-between; }
+    .cards { grid-template-columns: 1fr; }
+    .card-head { flex-direction: column; align-items: flex-start; }
+    .tabs { width: 100%; }
+    .tab { flex: 1; text-align: center; }
+    .tbl thead th.c-count { width: 40%; }
+    h1 { font-size: 18px; }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    * { animation: none !important; transition: none !important; }
+  }
+
+  @keyframes pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.55; }
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <!-- ============ header ============ -->
+  <header class="topbar">
+    <div class="brand">
+      <span class="brand-mark" aria-hidden="true">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"
+          stroke-linecap="round" stroke-linejoin="round">
+          <line x1="12" y1="20" x2="12" y2="10"></line>
+          <line x1="18" y1="20" x2="18" y2="4"></line>
+          <line x1="6" y1="20" x2="6" y2="16"></line>
+        </svg>
+      </span>
+      <div>
+        <h1>스타대학 활동 랭킹</h1>
+        <p class="sub">와이고수 pan_monstarz 게시판 · 일간 / 주간 / 월간 TOP 10</p>
+      </div>
+    </div>
+    <div class="topbar-right">
+      <span class="updated" id="updated">마지막 갱신: —</span>
+      <button class="btn" id="refresh-btn" type="button">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"
+          stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M21 12a9 9 0 1 1-9-9c2.52 0 4.93 1 6.74 2.74L21 8"></path>
+          <path d="M21 3v5h-5"></path>
+        </svg>
+        <span id="refresh-label">새로고침</span>
+      </button>
+    </div>
+  </header>
+
+  <!-- ============ collection progress ============ -->
+  <section class="progress-card" aria-label="수집 진행 상황">
+    <div class="progress-head">
+      <span class="phase" id="phase-label">대기 중</span>
+      <span class="counts" id="progress-counts"></span>
+      <span class="err-chip" id="err-chip" hidden></span>
+    </div>
+    <div class="progress-track" role="progressbar" aria-label="수집 진행률" id="progress-track">
+      <div class="progress-fill" id="progress-fill"></div>
+    </div>
+    <div class="progress-sub" id="progress-sub"></div>
+    <div class="progress-sub" id="err-note" hidden></div>
+  </section>
+
+  <!-- ============ error banner ============ -->
+  <div class="banner" id="banner" hidden>
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+      stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+      <circle cx="12" cy="12" r="10"></circle>
+      <line x1="12" y1="8" x2="12" y2="12"></line>
+      <line x1="12" y1="16" x2="12.01" y2="16"></line>
+    </svg>
+    <span id="banner-text">랭킹 데이터를 불러오지 못했습니다.</span>
+  </div>
+
+  <!-- ============ metric cards ============ -->
+  <main class="cards" id="cards">
+
+    <!-- 글작성수 -->
+    <section class="card" data-metric="posts" aria-label="글작성수 랭킹">
+      <div class="card-head">
+        <div class="card-title">
+          <span class="card-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+              stroke-linecap="round" stroke-linejoin="round">
+              <path d="M12 20h9"></path>
+              <path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4Z"></path>
+            </svg>
+          </span>
+          <h2>글작성수</h2>
+        </div>
+        <div class="tabs" role="tablist" aria-label="기간 선택">
+          <button class="tab is-active" type="button" role="tab" aria-selected="true" data-period="daily">일간</button>
+          <button class="tab" type="button" role="tab" aria-selected="false" data-period="weekly">주간</button>
+          <button class="tab" type="button" role="tab" aria-selected="false" data-period="monthly">월간</button>
+        </div>
+      </div>
+      <div class="tbl" data-metric="posts" data-period="daily" id="tbl-posts-daily">
+        <table>
+          <thead><tr><th class="c-rank">순위</th><th>닉네임</th><th class="c-count">수치</th></tr></thead>
+          <tbody></tbody>
+        </table>
+        <div class="tbl-empty" hidden></div>
+      </div>
+      <div class="tbl" data-metric="posts" data-period="weekly" id="tbl-posts-weekly" hidden>
+        <table>
+          <thead><tr><th class="c-rank">순위</th><th>닉네임</th><th class="c-count">수치</th></tr></thead>
+          <tbody></tbody>
+        </table>
+        <div class="tbl-empty" hidden></div>
+      </div>
+      <div class="tbl" data-metric="posts" data-period="monthly" id="tbl-posts-monthly" hidden>
+        <table>
+          <thead><tr><th class="c-rank">순위</th><th>닉네임</th><th class="c-count">수치</th></tr></thead>
+          <tbody></tbody>
+        </table>
+        <div class="tbl-empty" hidden></div>
+      </div>
+    </section>
+
+    <!-- 댓글작성수 -->
+    <section class="card" data-metric="comments" aria-label="댓글작성수 랭킹">
+      <div class="card-head">
+        <div class="card-title">
+          <span class="card-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+              stroke-linecap="round" stroke-linejoin="round">
+              <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
+            </svg>
+          </span>
+          <h2>댓글작성수</h2>
+        </div>
+        <div class="tabs" role="tablist" aria-label="기간 선택">
+          <button class="tab is-active" type="button" role="tab" aria-selected="true" data-period="daily">일간</button>
+          <button class="tab" type="button" role="tab" aria-selected="false" data-period="weekly">주간</button>
+          <button class="tab" type="button" role="tab" aria-selected="false" data-period="monthly">월간</button>
+        </div>
+      </div>
+      <div class="tbl" data-metric="comments" data-period="daily" id="tbl-comments-daily">
+        <table>
+          <thead><tr><th class="c-rank">순위</th><th>닉네임</th><th class="c-count">수치</th></tr></thead>
+          <tbody></tbody>
+        </table>
+        <div class="tbl-empty" hidden></div>
+      </div>
+      <div class="tbl" data-metric="comments" data-period="weekly" id="tbl-comments-weekly" hidden>
+        <table>
+          <thead><tr><th class="c-rank">순위</th><th>닉네임</th><th class="c-count">수치</th></tr></thead>
+          <tbody></tbody>
+        </table>
+        <div class="tbl-empty" hidden></div>
+      </div>
+      <div class="tbl" data-metric="comments" data-period="monthly" id="tbl-comments-monthly" hidden>
+        <table>
+          <thead><tr><th class="c-rank">순위</th><th>닉네임</th><th class="c-count">수치</th></tr></thead>
+          <tbody></tbody>
+        </table>
+        <div class="tbl-empty" hidden></div>
+      </div>
+    </section>
+
+    <!-- 추천한 수 -->
+    <section class="card" data-metric="given" aria-label="추천한 수 랭킹">
+      <div class="card-head">
+        <div class="card-title">
+          <span class="card-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+              stroke-linecap="round" stroke-linejoin="round">
+              <path d="M7 10v12"></path>
+              <path d="M15 5.88 14 10h5.83a2 2 0 0 1 1.92 2.56l-2.33 8A2 2 0 0 1 17.5 22H4a2 2 0 0 1-2-2v-8a2 2 0 0 1 2-2h2.76a2 2 0 0 0 1.79-1.11L12 2a3.13 3.13 0 0 1 3 3.88Z"></path>
+            </svg>
+          </span>
+          <h2>추천한 수</h2>
+        </div>
+        <div class="tabs" role="tablist" aria-label="기간 선택">
+          <button class="tab is-active" type="button" role="tab" aria-selected="true" data-period="daily">일간</button>
+          <button class="tab" type="button" role="tab" aria-selected="false" data-period="weekly">주간</button>
+          <button class="tab" type="button" role="tab" aria-selected="false" data-period="monthly">월간</button>
+        </div>
+      </div>
+      <div class="tbl" data-metric="given" data-period="daily" id="tbl-given-daily">
+        <table>
+          <thead><tr><th class="c-rank">순위</th><th>닉네임</th><th class="c-count">수치</th></tr></thead>
+          <tbody></tbody>
+        </table>
+        <div class="tbl-empty" hidden></div>
+      </div>
+      <div class="tbl" data-metric="given" data-period="weekly" id="tbl-given-weekly" hidden>
+        <table>
+          <thead><tr><th class="c-rank">순위</th><th>닉네임</th><th class="c-count">수치</th></tr></thead>
+          <tbody></tbody>
+        </table>
+        <div class="tbl-empty" hidden></div>
+      </div>
+      <div class="tbl" data-metric="given" data-period="monthly" id="tbl-given-monthly" hidden>
+        <table>
+          <thead><tr><th class="c-rank">순위</th><th>닉네임</th><th class="c-count">수치</th></tr></thead>
+          <tbody></tbody>
+        </table>
+        <div class="tbl-empty" hidden></div>
+      </div>
+    </section>
+
+    <!-- 추천받은 수 -->
+    <section class="card" data-metric="recv" aria-label="추천받은 수 랭킹">
+      <div class="card-head">
+        <div class="card-title">
+          <span class="card-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+              stroke-linecap="round" stroke-linejoin="round">
+              <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
+            </svg>
+          </span>
+          <h2>추천받은 수</h2>
+        </div>
+        <div class="tabs" role="tablist" aria-label="기간 선택">
+          <button class="tab is-active" type="button" role="tab" aria-selected="true" data-period="daily">일간</button>
+          <button class="tab" type="button" role="tab" aria-selected="false" data-period="weekly">주간</button>
+          <button class="tab" type="button" role="tab" aria-selected="false" data-period="monthly">월간</button>
+        </div>
+      </div>
+      <div class="tbl" data-metric="recv" data-period="daily" id="tbl-recv-daily">
+        <table>
+          <thead><tr><th class="c-rank">순위</th><th>닉네임</th><th class="c-count">수치</th></tr></thead>
+          <tbody></tbody>
+        </table>
+        <div class="tbl-empty" hidden></div>
+      </div>
+      <div class="tbl" data-metric="recv" data-period="weekly" id="tbl-recv-weekly" hidden>
+        <table>
+          <thead><tr><th class="c-rank">순위</th><th>닉네임</th><th class="c-count">수치</th></tr></thead>
+          <tbody></tbody>
+        </table>
+        <div class="tbl-empty" hidden></div>
+      </div>
+      <div class="tbl" data-metric="recv" data-period="monthly" id="tbl-recv-monthly" hidden>
+        <table>
+          <thead><tr><th class="c-rank">순위</th><th>닉네임</th><th class="c-count">수치</th></tr></thead>
+          <tbody></tbody>
+        </table>
+        <div class="tbl-empty" hidden></div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ============ footer ============ -->
+  <footer class="foot">
+    <h2>데이터 정의</h2>
+    <ul>
+      <li>추천한 수 = 해당 기간에 작성된 글에 추천한 횟수입니다.</li>
+      <li>추천 0 이하인 글의 추천자는 집계되지 않습니다.</li>
+      <li>익명(비로그인) 댓글 작성자는 순위에서 제외됩니다.</li>
+      <li>모든 시각은 한국 표준시(KST) 기준입니다.</li>
+      <li>수집 진행 중에는 부분 데이터로 표시되며, 완료 후 전체 데이터로 갱신됩니다.</li>
+    </ul>
+  </footer>
+
+</div>
+
+<script>
+(function () {
+  'use strict';
+
+  var RANKINGS_URL = '/api/rankings';
+  var STATUS_URL = '/api/status';
+  var REFRESH_URL = '/api/refresh';
+  var POLL_MS = 5000;
+
+  var METRICS = [
+    { key: 'posts', label: '글작성수' },
+    { key: 'comments', label: '댓글작성수' },
+    { key: 'given', label: '추천한 수' },
+    { key: 'recv', label: '추천받은 수' }
+  ];
+  var PERIODS = ['daily', 'weekly', 'monthly'];
+
+  var PHASE_LABEL = {
+    idle: '대기 중',
+    list: '목록 수집 중',
+    articles: '글·댓글 수집 중',
+    votes: '추천인 수집 중',
+    done: '완료',
+    error: '오류 발생'
+  };
+  var PHASE_PCT = { idle: 0, list: 25, articles: 50, votes: 75, done: 100 };
+
+  var $ = function (sel) { return document.querySelector(sel); };
+  var $$ = function (sel) { return Array.prototype.slice.call(document.querySelectorAll(sel)); };
+
+  var refreshBtn = $('#refresh-btn');
+  var refreshLabel = $('#refresh-label');
+  var updatedEl = $('#updated');
+  var phaseEl = $('#phase-label');
+  var countsEl = $('#progress-counts');
+  var subEl = $('#progress-sub');
+  var fillEl = $('#progress-fill');
+  var errChip = $('#err-chip');
+  var bannerEl = $('#banner');
+  var bannerText = $('#banner-text');
+
+  var wasRunning = false;
+
+  function esc(s) {
+    return String(s).replace(/[&<>"']/g, function (c) {
+      return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c];
+    });
+  }
+
+  function fmtKST(iso) {
+    if (!iso) return '—';
+    var d = new Date(iso);
+    if (isNaN(d.getTime())) return String(iso);
+    var parts = new Intl.DateTimeFormat('ko-KR', {
+      timeZone: 'Asia/Seoul',
+      year: 'numeric', month: '2-digit', day: '2-digit',
+      hour: '2-digit', minute: '2-digit', second: '2-digit',
+      hourCycle: 'h23'
+    }).formatToParts(d);
+    var get = function (t) {
+      var hit = parts.filter(function (p) { return p.type === t; })[0];
+      return hit ? hit.value : '';
+    };
+    return get('year') + '-' + get('month') + '-' + get('day') + ' ' +
+      get('hour') + ':' + get('minute') + ':' + get('second');
+  }
+
+  function showBanner(msg) {
+    bannerText.textContent = msg;
+    bannerEl.hidden = false;
+  }
+
+  function hideBanner() {
+    bannerEl.hidden = true;
+  }
+
+  /* ---------- rankings ---------- */
+
+  function renderRankings(data) {
+    if (!data || typeof data !== 'object') return;
+    updatedEl.textContent = '마지막 갱신: ' + fmtKST(data.generatedAt);
+
+    var givenUnavailable = !!(data.top && data.top.given && data.top.given.unavailable);
+
+    METRICS.forEach(function (m) {
+      PERIODS.forEach(function (p) {
+        var box = $('#tbl-' + m.key + '-' + p);
+        if (!box) return;
+        var tbody = box.querySelector('tbody');
+        var empty = box.querySelector('.tbl-empty');
+
+        if (m.key === 'given' && givenUnavailable) {
+          tbody.innerHTML = '';
+          empty.textContent = '추천한 수 지표는 제공되지 않습니다';
+          empty.hidden = false;
+          return;
+        }
+
+        var rows = data.top && data.top[m.key] && data.top[m.key][p];
+        if (!Array.isArray(rows) || rows.length === 0) {
+          tbody.innerHTML = '';
+          empty.textContent = '아직 데이터가 없습니다 — 새로고침을 눌러 수집을 시작하세요';
+          empty.hidden = false;
+          return;
+        }
+
+        empty.hidden = true;
+        var max = 1;
+        rows.forEach(function (r) {
+          var c = Number(r.count) || 0;
+          if (c > max) max = c;
+        });
+
+        tbody.innerHTML = rows.map(function (r) {
+          var rank = Number(r.rank) || 0;
+          var count = Number(r.count) || 0;
+          var pct = Math.max(2, Math.round((count / max) * 100));
+          var medal = rank >= 1 && rank <= 3 ? ' r' + rank : '';
+          return '<tr>' +
+            '<td class="c-rank"><span class="rank' + medal + '">' + rank + '</span></td>' +
+            '<td class="c-nick" title="' + esc(r.nick) + '">' + esc(r.nick) + '</td>' +
+            '<td class="c-count"><span class="bar"><span class="bar-fill" style="width:' + pct + '%"></span></span>' +
+            '<span class="num">' + count + '</span></td>' +
+            '</tr>';
+        }).join('');
+      });
+    });
+
+    var errNote = $('#err-note');
+    if (errNote) {
+      var n = Number(data.errors) || 0;
+      errNote.hidden = n === 0;
+      errNote.textContent = '계산 중 손상된 이벤트 ' + n + '건은 제외되었습니다';
+    }
+  }
+
+  function loadRankings() {
+    fetch(RANKINGS_URL)
+      .then(function (res) {
+        if (!res.ok) throw new Error('HTTP ' + res.status);
+        return res.json();
+      })
+      .then(function (data) {
+        hideBanner();
+        renderRankings(data);
+      })
+      .catch(function () {
+        showBanner('랭킹 데이터를 불러오지 못했습니다 — 서버가 실행 중인지 확인하세요');
+      });
+  }
+
+  /* ---------- status ---------- */
+
+  function renderStatus(st) {
+    if (!st || !st.progress) return;
+    var pr = st.progress;
+
+    var phase = PHASE_LABEL[pr.phase] || pr.phase || '대기 중';
+    phaseEl.textContent = phase;
+    phaseEl.classList.toggle('is-running', !!st.running);
+
+    var pct = PHASE_PCT[pr.phase];
+    if (pct !== undefined) {
+      fillEl.style.width = pct + '%';
+      fillEl.classList.toggle('is-running', !!st.running);
+    }
+
+    countsEl.textContent = '목록 ' + (pr.scanned || 0) +
+      ' · 글 ' + (pr.fetched || 0) +
+      ' · 추천 ' + (pr.votes || 0);
+
+    var ec = st.eventCounts || {};
+    subEl.textContent = '수집 이벤트: 글 ' + (ec.article || 0) +
+      ' · 댓글 ' + (ec.comment || 0) +
+      ' · 추천 ' + (ec.vote || 0) +
+      ' · 총 ' + (ec.total || 0);
+
+    var errs = Array.isArray(pr.errors) ? pr.errors : [];
+    errChip.hidden = errs.length === 0;
+    errChip.textContent = '오류 ' + errs.length + '건';
+    if (errs.length > 0) {
+      var last = errs[errs.length - 1];
+      errChip.title = (last && last.message) || '';
+    }
+
+    refreshBtn.disabled = !!st.running;
+    refreshLabel.textContent = st.running ? '수집 중...' : '새로고침';
+
+    if (wasRunning && !st.running) loadRankings(); // run finished -> refresh data
+    wasRunning = !!st.running;
+  }
+
+  function loadStatus() {
+    fetch(STATUS_URL)
+      .then(function (res) {
+        if (!res.ok) throw new Error('HTTP ' + res.status);
+        return res.json();
+      })
+      .then(renderStatus)
+      .catch(function () {
+        phaseEl.textContent = '서버 연결 안 됨';
+        phaseEl.classList.remove('is-running');
+      });
+  }
+
+  /* ---------- refresh ---------- */
+
+  function startRefresh() {
+    refreshBtn.disabled = true;
+    refreshLabel.textContent = '수집 중...';
+    fetch(REFRESH_URL, { method: 'POST' })
+      .then(function (res) {
+        if (!res.ok) throw new Error('HTTP ' + res.status);
+        return res.json();
+      })
+      .then(function () {
+        loadRankings(); // show partial data right away; status poll keeps the button state
+      })
+      .catch(function () {
+        refreshBtn.disabled = false;
+        refreshLabel.textContent = '새로고침';
+        showBanner('새로고침 요청에 실패했습니다 — 서버가 실행 중인지 확인하세요');
+      });
+  }
+
+  /* ---------- period tabs ---------- */
+
+  $$('.card').forEach(function (card) {
+    var tabs = card.querySelectorAll('.tab');
+    var tables = card.querySelectorAll('.tbl');
+    tabs.forEach(function (tab) {
+      tab.addEventListener('click', function () {
+        var period = tab.getAttribute('data-period');
+        tabs.forEach(function (t) {
+          var on = t === tab;
+          t.classList.toggle('is-active', on);
+          t.setAttribute('aria-selected', on ? 'true' : 'false');
+        });
+        tables.forEach(function (tbl) {
+          tbl.hidden = tbl.getAttribute('data-period') !== period;
+        });
+      });
+    });
+  });
+
+  /* ---------- init ---------- */
+
+  refreshBtn.addEventListener('click', startRefresh);
+  loadRankings();
+  loadStatus();
+  setInterval(loadStatus, POLL_MS);
+})();
+</script>
+</body>
+</html>
