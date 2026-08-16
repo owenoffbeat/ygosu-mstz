@@ -3,23 +3,26 @@
 import { test, after } from 'node:test';
 import assert from 'node:assert/strict';
 import fs from 'node:fs/promises';
+import os from 'node:os';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
-import { fetchPool } from '../server.mjs';
+import { fetchPool, store } from '../server.mjs';
 import { parseListPage, parseRecv, crawlList } from '../lib/list.js';
 import { kstDate, kstTimestamp, todayStartKst, parseListTime } from '../lib/kst.js';
 
 const FIXTURE = fileURLToPath(new URL('./fixtures/list_page0.html', import.meta.url));
-const DATA_DIR = fileURLToPath(new URL('../data/', import.meta.url));
+// Isolated per-file data dir: parallel `node --test` runs share the filesystem,
+// so each file gets its own tmp dir (store.configure overrides the ./data/ default).
+const DATA_DIR = path.join(os.tmpdir(), `ygosu-test-list-${process.pid}`);
 const EVENTS_FILE = path.join(DATA_DIR, 'events.jsonl');
 const STATE_FILE = path.join(DATA_DIR, 'state.json');
+store.configure({ dataDir: DATA_DIR });
 
 // Fixed "now" so HH:MM times resolve to 2026-08-16 KST (fixture capture day).
 const NOW = new Date('2026-08-16T03:00:00Z'); // 2026-08-16 12:00 KST
 
 async function resetData() {
-  await fs.rm(EVENTS_FILE, { force: true });
-  await fs.rm(STATE_FILE, { force: true });
+  await fs.rm(DATA_DIR, { recursive: true, force: true });
 }
 
 after(() => resetData());

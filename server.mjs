@@ -144,11 +144,36 @@ const fetchPool = {
 // store — JSONL event log + atomic state persistence
 // ============================================================
 
-const DATA_DIR = fileURLToPath(new URL('./data/', import.meta.url));
-const EVENTS_FILE = path.join(DATA_DIR, 'events.jsonl');
-const STATE_FILE = path.join(DATA_DIR, 'state.json');
+// Data directory: YGOSU_DATA_DIR env override, else ./data/ (repo default).
+// Tests call store.configure({ dataDir }) to isolate per-file tmp dirs.
+let DATA_DIR = process.env.YGOSU_DATA_DIR
+  ? path.resolve(process.env.YGOSU_DATA_DIR)
+  : fileURLToPath(new URL('./data/', import.meta.url));
+let EVENTS_FILE = path.join(DATA_DIR, 'events.jsonl');
+let STATE_FILE = path.join(DATA_DIR, 'state.json');
 
 const store = {
+  /** Point the store at a different data directory (tests isolate per-file tmp dirs). */
+  configure({ dataDir } = {}) {
+    if (dataDir !== undefined) {
+      DATA_DIR = dataDir;
+      EVENTS_FILE = path.join(DATA_DIR, 'events.jsonl');
+      STATE_FILE = path.join(DATA_DIR, 'state.json');
+    }
+  },
+
+  get dataDir() {
+    return DATA_DIR;
+  },
+
+  get eventsFile() {
+    return EVENTS_FILE;
+  },
+
+  get stateFile() {
+    return STATE_FILE;
+  },
+
   /** Append one event object as a JSON line to data/events.jsonl (append-only). */
   async appendEvent(obj) {
     await fs.mkdir(DATA_DIR, { recursive: true });

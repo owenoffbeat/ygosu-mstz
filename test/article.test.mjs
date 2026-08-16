@@ -4,6 +4,7 @@
 import { test, after } from 'node:test';
 import assert from 'node:assert/strict';
 import fs from 'node:fs/promises';
+import os from 'node:os';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { fetchPool, store } from '../server.mjs';
@@ -11,16 +12,18 @@ import { parseArticlePage, parseComments, crawlArticles } from '../lib/article.j
 
 const FIXTURE = fileURLToPath(new URL('./fixtures/article_1732853.html', import.meta.url));
 const AJAX_FIXTURE = fileURLToPath(new URL('./fixtures/reply_ajax.json', import.meta.url));
-const DATA_DIR = fileURLToPath(new URL('../data/', import.meta.url));
+// Isolated per-file data dir: parallel `node --test` runs share the filesystem,
+// so each file gets its own tmp dir (store.configure overrides the ./data/ default).
+const DATA_DIR = path.join(os.tmpdir(), `ygosu-test-article-${process.pid}`);
 const EVENTS_FILE = path.join(DATA_DIR, 'events.jsonl');
 const STATE_FILE = path.join(DATA_DIR, 'state.json');
+store.configure({ dataDir: DATA_DIR });
 
 // Fixed reference: 2026-08-16 21:00 KST (fixture capture day).
 const NOW = new Date('2026-08-16T12:00:00Z');
 
 async function resetData() {
-  await fs.rm(EVENTS_FILE, { force: true });
-  await fs.rm(STATE_FILE, { force: true });
+  await fs.rm(DATA_DIR, { recursive: true, force: true });
 }
 
 after(() => resetData());
