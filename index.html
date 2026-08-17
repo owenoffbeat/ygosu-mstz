@@ -721,6 +721,7 @@
   var bannerText = $('#banner-text');
 
   var wasRunning = false;
+  var rankingsInFlight = false; // dedupe guard for loadRankings (auto-retry + manual)
 
   function esc(s) {
     return String(s).replace(/[&<>"']/g, function (c) {
@@ -816,6 +817,8 @@
   }
 
   function loadRankings() {
+    if (rankingsInFlight) return; // one fetch at a time — poll retries on the next tick
+    rankingsInFlight = true;
     fetch(RANKINGS_URL)
       .then(function (res) {
         if (!res.ok) throw new Error('HTTP ' + res.status);
@@ -827,6 +830,9 @@
       })
       .catch(function () {
         showBanner('랭킹 데이터를 불러오지 못했습니다 — 서버가 실행 중인지 확인하세요');
+      })
+      .then(function () {
+        rankingsInFlight = false;
       });
   }
 
@@ -877,7 +883,13 @@
         if (!res.ok) throw new Error('HTTP ' + res.status);
         return res.json();
       })
-      .then(renderStatus)
+      .then(function (st) {
+        renderStatus(st);
+        // Auto-recover: while the error banner is visible and no rankings fetch
+        // is in flight, retry on every successful status poll — the banner
+        // disappears on its own once the server recovers (no refresh click).
+        if (!bannerEl.hidden && !rankingsInFlight) loadRankings();
+      })
       .catch(function () {
         phaseEl.textContent = '서버 연결 안 됨';
         phaseEl.classList.remove('is-running');

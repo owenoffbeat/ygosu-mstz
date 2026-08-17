@@ -78,6 +78,23 @@ test('dashboard controls present (refresh button, progress bar, updated time)', 
   assert.match(html, /\/api\/refresh/, 'refresh endpoint reference missing');
 });
 
+test('rankings auto-recovery present (in-flight guard + banner-visible retry)', () => {
+  // F4: while the error banner is visible, a successful /api/status poll must
+  // retry /api/rankings so the banner disappears on its own after recovery.
+  // The in-flight flag dedupes concurrent loadRankings calls.
+  assert.match(html, /rankingsInFlight/, 'in-flight guard flag missing');
+  assert.match(
+    html,
+    /if\s*\(rankingsInFlight\)\s*return;/,
+    'loadRankings must bail out while a fetch is in flight',
+  );
+  assert.match(
+    html,
+    /!bannerEl\.hidden\s*&&\s*!rankingsInFlight/,
+    'status poll must retry loadRankings while the banner is visible',
+  );
+});
+
 test('footer data definitions present', () => {
   assert.match(html, /데이터 정의/, 'footer heading missing');
   assert.match(html, /추천한 수 = 해당 기간에 작성된 글에 추천한 횟수/, 'given definition missing');
