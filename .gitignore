@@ -1,3 +1,6 @@
-data/
+data/*.tmp
+data/crawl.lock
 .omo/
 .codegraph
+.playwright-mcp/
+post/
