@@ -78,7 +78,7 @@ function cardHtml(card) {
     `aria-selected="${i === 0}" data-period="${p.key}">${p.label}</button>`,
   ).join('\n');
   const tables = PERIODS.map((p, i) =>
-    `<div class="tbl" data-metric="${card.key}" data-period="${p.key}"${i === 0 ? '' : ' hidden'}>` +
+    `<div class="tbl" id="tbl-${card.key}-${p.key}" data-metric="${card.key}" data-period="${p.key}"${i === 0 ? '' : ' hidden'}>` +
     `<table><thead><tr><th class="c-rank">순위</th><th>닉네임</th>` +
     `<th class="c-count">수치</th></tr></thead><tbody></tbody></table>` +
     `<div class="tbl-empty" hidden></div></div>`,
