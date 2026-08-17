@@ -1,7 +1,7 @@
 name: crawl
 on:
   schedule:
-    - cron: '*/15 * * * *'
+    - cron: '*/5 * * * *'
   workflow_dispatch:
 concurrency:
   group: crawl
@@ -17,7 +17,7 @@ jobs:
           fetch-depth: 1
       - uses: actions/setup-node@v4
         with:
-          node-version: '20'
+          node-version: '22'
       - run: node tools/cloud-crawl.mjs
       - run: node tools/post-html.mjs        # data/rankings.json → docs/rankings.json + docs/index.html 재생성
       - name: Commit and push
