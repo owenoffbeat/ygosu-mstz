@@ -588,7 +588,6 @@ const PAGE_HTML = `<!DOCTYPE html>
       </span>
       <div>
         <h1>스타대학 활동 랭킹</h1>
-        <p class="sub">와이고수 pan_monstarz 게시판 · 일간 / 주간 / 월간 TOP 10</p>
       </div>
     </div>
     <span class="updated" id="updated">마지막 갱신: —</span>
