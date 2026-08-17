@@ -138,7 +138,7 @@ test('crawlArticles: appends user + 18 comment events, dedupes, marks fetched', 
   });
   const articleMap = new Map([[1732853, { badge: 18, ts: '2026-07-17T22:59:26+09:00', nick: '408주종발효' }]]);
   const errors = [];
-  const result = await crawlArticles({ fetchQueue: [1732853], articleMap, onError: (e) => errors.push(e) });
+  const result = await crawlArticles({ fetchQueue: [1732853], articleMap, now: NOW, onError: (e) => errors.push(e) });
   assert.equal(result.processed, 1);
   assert.equal(result.skipped, 0);
   assert.equal(errors.length, 0);
@@ -220,7 +220,7 @@ test('crawlArticles: paginates via reply_list_action until pagecount, re-emits r
     maxConcurrency: 3,
   });
   const articleMap = new Map([[7777, { badge: 3, ts: '2026-08-15T10:00:00+09:00', nick: '작성자' }]]);
-  const result = await crawlArticles({ fetchQueue: [7777], articleMap });
+  const result = await crawlArticles({ fetchQueue: [7777], articleMap, now: NOW });
   assert.equal(result.report[0].pagesFetched, 2, 'pagecount 2 -> 2 POSTs');
   assert.equal(posts.length, 2, 'no extra POSTs beyond pagecount');
 
