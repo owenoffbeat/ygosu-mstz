@@ -106,7 +106,7 @@ const CARDS_HTML = METRIC_CARDS.map(cardHtml).join('\n\n');
 const INLINE_SCRIPT = `(function () {
   'use strict';
 
-  var RANKINGS_URL = './rankings.json';
+  var RANKINGS_URL = 'https://owenoffbeat.github.io/ygosu-mstz/rankings.json?v=' + Date.now();
   var RETRY_MS = 30 * 1000;      // fetch 실패 시 재시도 간격
   var REFRESH_MS = 5 * 60 * 1000; // 성공 시 자동 재조회 간격 (새로고침 없이 최신 데이터)
   var METRICS = ['posts', 'comments', 'given', 'recv'];
