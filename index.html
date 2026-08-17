@@ -28,6 +28,9 @@
 
   * { box-sizing: border-box; margin: 0; padding: 0; }
 
+  /* hidden attribute must always win over any display rule below */
+  [hidden] { display: none !important; }
+
   html { color-scheme: dark; }
 
   body {
@@ -197,6 +200,9 @@
   }
 
   .banner svg { width: 16px; height: 16px; flex: none; }
+
+  /* .banner{display:flex} must not override the hidden attribute */
+  .banner[hidden] { display: none; }
 
   /* ============ metric cards ============ */
   .cards {
