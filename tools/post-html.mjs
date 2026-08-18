@@ -254,26 +254,27 @@ const PAGE_HTML = `<!DOCTYPE html>
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>스타대학 활동 랭킹</title>
+<title>스대게 활동 랭킹</title>
 <style>
   :root {
-    --bg: #0c0f16;
-    --bg-2: #101827;
-    --card: #141a26;
-    --card-2: #182030;
-    --border: #232c3f;
-    --border-soft: #1d2534;
-    --text: #e9edf5;
-    --text-dim: #9aa5b8;
-    --text-faint: #66718a;
-    --accent: #4f8cff;
-    --accent-2: #2dd4bf;
-    --gold: #f6c453;
-    --silver: #c3ccda;
-    --bronze: #d08a5a;
-    --danger: #ff7a7a;
-    --radius: 14px;
-    --shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
+    --bg: #0a0c11;
+    --card: #12151d;
+    --card-hover: #151a25;
+    --border: rgba(255, 255, 255, 0.07);
+    --border-strong: rgba(255, 255, 255, 0.13);
+    --text: #e7eaf1;
+    --text-dim: #98a1b3;
+    --text-faint: #5d6678;
+    --accent: #6366f1;
+    --accent-soft: #818cf8;
+    --accent-tint: rgba(99, 102, 241, 0.1);
+    --gold: #e3b96a;
+    --silver: #a8b0c0;
+    --bronze: #c08a5e;
+    --danger: #f87171;
+    --radius: 12px;
+    --shadow-md: 0 1px 2px rgba(0, 0, 0, 0.4), 0 8px 24px rgba(0, 0, 0, 0.25);
+    --shadow-lg: 0 2px 4px rgba(0, 0, 0, 0.4), 0 12px 32px rgba(0, 0, 0, 0.32);
   }
 
   * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -285,8 +286,9 @@ const PAGE_HTML = `<!DOCTYPE html>
   body {
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Malgun Gothic",
       "Apple SD Gothic Neo", sans-serif;
-    background: radial-gradient(1200px 600px at 85% -10%, var(--bg-2), transparent 60%),
-      radial-gradient(900px 500px at -10% 110%, #101b2e, transparent 55%), var(--bg);
+    background:
+      radial-gradient(1100px 500px at 50% -14%, rgba(99, 102, 241, 0.07), transparent 62%),
+      var(--bg);
     color: var(--text);
     line-height: 1.5;
     min-height: 100vh;
@@ -301,41 +303,56 @@ const PAGE_HTML = `<!DOCTYPE html>
     justify-content: space-between;
     gap: 16px;
     flex-wrap: wrap;
-    margin-bottom: 18px;
+    margin-bottom: 20px;
   }
 
-  .brand { display: flex; align-items: center; gap: 14px; }
+  .brand { display: flex; align-items: center; gap: 13px; }
 
   .brand-mark {
-    width: 46px;
-    height: 46px;
-    border-radius: 13px;
+    width: 40px;
+    height: 40px;
+    border-radius: 10px;
     display: grid;
     place-items: center;
     color: #fff;
-    background: linear-gradient(135deg, var(--accent), var(--accent-2));
-    box-shadow: 0 6px 18px rgba(79, 140, 255, 0.35);
+    background: linear-gradient(135deg, var(--accent), var(--accent-soft));
+    box-shadow: 0 4px 14px rgba(99, 102, 241, 0.28);
     flex: none;
   }
 
-  .brand-mark svg { width: 24px; height: 24px; }
+  .brand-mark svg { width: 21px; height: 21px; }
 
-  h1 { font-size: 21px; font-weight: 800; letter-spacing: -0.02em; }
+  h1 { font-size: 20px; font-weight: 700; letter-spacing: -0.025em; }
 
-  .sub { font-size: 12.5px; color: var(--text-dim); margin-top: 2px; }
+  .updated {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    font-size: 12.5px;
+    color: var(--text-dim);
+    font-variant-numeric: tabular-nums;
+  }
 
-  .updated { font-size: 12.5px; color: var(--text-dim); font-variant-numeric: tabular-nums; }
+  .updated::before {
+    content: "";
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: #34d399;
+    box-shadow: 0 0 0 3px rgba(52, 211, 153, 0.12);
+    flex: none;
+  }
 
   .banner {
     display: flex;
     align-items: center;
     gap: 10px;
-    background: rgba(255, 122, 122, 0.08);
-    border: 1px solid rgba(255, 122, 122, 0.4);
-    color: var(--danger);
+    background: rgba(248, 113, 113, 0.07);
+    border: 1px solid rgba(248, 113, 113, 0.22);
+    color: #fca5a5;
     font-size: 13px;
     font-weight: 600;
-    border-radius: 12px;
+    border-radius: 10px;
     padding: 11px 14px;
     margin-bottom: 18px;
   }
@@ -347,16 +364,27 @@ const PAGE_HTML = `<!DOCTYPE html>
   .cards {
     display: grid;
     grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 16px;
+    gap: 14px;
   }
 
   .card {
     background: var(--card);
     border: 1px solid var(--border);
     border-radius: var(--radius);
-    padding: 16px;
-    box-shadow: var(--shadow);
+    padding: 18px;
+    box-shadow: var(--shadow-md);
     min-width: 0;
+    transition: transform 0.18s ease, border-color 0.18s ease,
+      box-shadow 0.18s ease, background 0.18s ease;
+  }
+
+  @media (hover: hover) {
+    .card:hover {
+      transform: translateY(-2px);
+      border-color: var(--border-strong);
+      background: var(--card-hover);
+      box-shadow: var(--shadow-lg);
+    }
   }
 
   .card-head {
@@ -365,33 +393,33 @@ const PAGE_HTML = `<!DOCTYPE html>
     justify-content: space-between;
     gap: 10px;
     flex-wrap: wrap;
-    margin-bottom: 12px;
+    margin-bottom: 14px;
   }
 
-  .card-title { display: flex; align-items: center; gap: 10px; }
+  .card-title { display: flex; align-items: center; gap: 9px; }
 
   .card-icon {
-    width: 34px;
-    height: 34px;
-    border-radius: 10px;
+    width: 30px;
+    height: 30px;
+    border-radius: 8px;
     display: grid;
     place-items: center;
-    color: #fff;
-    background: linear-gradient(135deg, #2b3a5c, #1d2740);
-    border: 1px solid var(--border);
+    color: var(--accent-soft);
+    background: var(--accent-tint);
+    border: 1px solid rgba(99, 102, 241, 0.18);
     flex: none;
   }
 
-  .card-icon svg { width: 17px; height: 17px; }
+  .card-icon svg { width: 15px; height: 15px; }
 
-  .card h2 { font-size: 15px; font-weight: 800; letter-spacing: -0.01em; }
+  .card h2 { font-size: 14.5px; font-weight: 700; letter-spacing: -0.01em; }
 
   .tabs {
     display: inline-flex;
     gap: 2px;
-    background: #0e1320;
-    border: 1px solid var(--border-soft);
-    border-radius: 10px;
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid var(--border);
+    border-radius: 9px;
     padding: 3px;
   }
 
@@ -401,9 +429,9 @@ const PAGE_HTML = `<!DOCTYPE html>
     color: var(--text-dim);
     font: inherit;
     font-size: 12px;
-    font-weight: 700;
+    font-weight: 600;
     padding: 5px 12px;
-    border-radius: 7px;
+    border-radius: 6px;
     cursor: pointer;
     transition: background 0.15s ease, color 0.15s ease;
   }
@@ -411,8 +439,9 @@ const PAGE_HTML = `<!DOCTYPE html>
   .tab:hover { color: var(--text); }
 
   .tab.is-active {
-    background: linear-gradient(135deg, var(--accent), #3b6fd8);
-    color: #fff;
+    background: rgba(255, 255, 255, 0.09);
+    color: var(--text);
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.05), 0 1px 2px rgba(0, 0, 0, 0.3);
   }
 
   .tbl table {
@@ -422,21 +451,21 @@ const PAGE_HTML = `<!DOCTYPE html>
   }
 
   .tbl thead th {
-    font-size: 11px;
-    font-weight: 700;
+    font-size: 10.5px;
+    font-weight: 600;
     color: var(--text-faint);
     text-align: left;
     padding: 6px 8px;
     border-bottom: 1px solid var(--border);
-    letter-spacing: 0.04em;
+    letter-spacing: 0.06em;
   }
 
   .tbl thead th.c-rank { width: 52px; }
   .tbl thead th.c-count { width: 46%; text-align: right; }
 
   .tbl tbody td {
-    padding: 7px 8px;
-    border-bottom: 1px solid var(--border-soft);
+    padding: 8px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.045);
     font-size: 13px;
     vertical-align: middle;
   }
@@ -445,38 +474,41 @@ const PAGE_HTML = `<!DOCTYPE html>
 
   .tbl tbody tr { transition: background 0.12s ease; }
 
-  .tbl tbody tr:hover { background: var(--card-2); }
+  .tbl tbody tr:hover { background: rgba(255, 255, 255, 0.025); }
 
   .c-rank { width: 52px; }
 
   .rank {
     display: inline-grid;
     place-items: center;
-    width: 22px;
+    min-width: 22px;
     height: 22px;
-    border-radius: 50%;
-    font-size: 11.5px;
-    font-weight: 800;
+    padding: 0 5px;
+    border-radius: 6px;
+    font-size: 11px;
+    font-weight: 700;
     color: var(--text-faint);
-    background: transparent;
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid var(--border);
+    font-variant-numeric: tabular-nums;
   }
 
   .rank.r1 {
-    background: linear-gradient(135deg, #ffe08a, var(--gold));
-    color: #3a2c05;
-    box-shadow: 0 0 10px rgba(246, 196, 83, 0.45);
+    color: var(--gold);
+    background: rgba(227, 185, 106, 0.1);
+    border-color: rgba(227, 185, 106, 0.3);
   }
 
   .rank.r2 {
-    background: linear-gradient(135deg, #e8eef7, var(--silver));
-    color: #2c3442;
-    box-shadow: 0 0 8px rgba(195, 204, 218, 0.35);
+    color: var(--silver);
+    background: rgba(168, 176, 192, 0.1);
+    border-color: rgba(168, 176, 192, 0.3);
   }
 
   .rank.r3 {
-    background: linear-gradient(135deg, #e8a97e, var(--bronze));
-    color: #3d2410;
-    box-shadow: 0 0 8px rgba(208, 138, 90, 0.35);
+    color: var(--bronze);
+    background: rgba(192, 138, 94, 0.1);
+    border-color: rgba(192, 138, 94, 0.3);
   }
 
   .c-nick {
@@ -493,18 +525,17 @@ const PAGE_HTML = `<!DOCTYPE html>
     vertical-align: middle;
     width: calc(100% - 44px);
     max-width: 120px;
-    height: 6px;
-    border-radius: 3px;
-    background: #0a0e16;
-    border: 1px solid var(--border-soft);
+    height: 5px;
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.05);
     overflow: hidden;
   }
 
   .c-count .bar-fill {
     display: block;
     height: 100%;
-    border-radius: 3px;
-    background: linear-gradient(90deg, var(--accent), var(--accent-2));
+    border-radius: 999px;
+    background: linear-gradient(90deg, var(--accent), var(--accent-soft));
     transition: width 0.4s ease;
   }
 
@@ -526,7 +557,7 @@ const PAGE_HTML = `<!DOCTYPE html>
   }
 
   @media (max-width: 760px) {
-    body { padding: 16px 10px 32px; }
+    body { padding: 16px 12px 32px; }
     .topbar { flex-direction: column; align-items: flex-start; }
     .cards { grid-template-columns: 1fr; }
     .card-head { flex-direction: column; align-items: flex-start; }
@@ -534,6 +565,13 @@ const PAGE_HTML = `<!DOCTYPE html>
     .tab { flex: 1; text-align: center; }
     .tbl thead th.c-count { width: 40%; }
     h1 { font-size: 18px; }
+  }
+
+  @media (max-width: 400px) {
+    body { padding: 14px 10px 28px; }
+    .card { padding: 14px; }
+    .tab { padding: 5px 8px; font-size: 11.5px; }
+    .c-count .bar { max-width: 88px; }
   }
 
   @media (prefers-reduced-motion: reduce) {
@@ -555,7 +593,7 @@ const PAGE_HTML = `<!DOCTYPE html>
         </svg>
       </span>
       <div>
-        <h1>스타대학 활동 랭킹</h1>
+        <h1>스대게 활동 랭킹</h1>
       </div>
     </div>
     <span class="updated" id="updated">마지막 갱신: —</span>
