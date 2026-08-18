@@ -1,17 +1,17 @@
 {
-  "generatedAt": "2026-08-19T00:45:45+09:00",
+  "generatedAt": "2026-08-19T00:50:43+09:00",
   "periods": {
     "daily": {
       "start": "2026-08-19T00:00:00+09:00",
-      "end": "2026-08-19T00:45:45+09:00"
+      "end": "2026-08-19T00:50:43+09:00"
     },
     "weekly": {
-      "start": "2026-08-12T00:45:45+09:00",
-      "end": "2026-08-19T00:45:45+09:00"
+      "start": "2026-08-12T00:50:43+09:00",
+      "end": "2026-08-19T00:50:43+09:00"
     },
     "monthly": {
-      "start": "2026-07-20T00:45:45+09:00",
-      "end": "2026-08-19T00:45:45+09:00"
+      "start": "2026-07-20T00:50:43+09:00",
+      "end": "2026-08-19T00:50:43+09:00"
     }
   },
   "metrics": {
@@ -26,7 +26,7 @@
         {
           "rank": 1,
           "nick": "세트카전단지",
-          "count": 9
+          "count": 10
         },
         {
           "rank": 2,
@@ -55,22 +55,22 @@
         },
         {
           "rank": 7,
+          "nick": "Brain",
+          "count": 5
+        },
+        {
+          "rank": 8,
+          "nick": "꼬마요정요닝",
+          "count": 5
+        },
+        {
+          "rank": 9,
           "nick": "흙장난",
           "count": 4
         },
         {
-          "rank": 8,
-          "nick": "Brain",
-          "count": 4
-        },
-        {
-          "rank": 9,
-          "nick": "암애",
-          "count": 4
-        },
-        {
           "rank": 10,
-          "nick": "파랑이어울려",
+          "nick": "암애",
           "count": 4
         }
       ],
@@ -193,42 +193,42 @@
         },
         {
           "rank": 3,
+          "nick": "파랑이어울려",
+          "count": 5
+        },
+        {
+          "rank": 4,
           "nick": "dingdiring",
           "count": 4
         },
         {
-          "rank": 4,
+          "rank": 5,
           "nick": "폭탄공장막긴혀따",
           "count": 4
         },
         {
-          "rank": 5,
+          "rank": 6,
+          "nick": "사이버펑크",
+          "count": 4
+        },
+        {
+          "rank": 7,
           "nick": "내가오늘",
           "count": 3
         },
         {
-          "rank": 6,
+          "rank": 8,
           "nick": "장래희망지드래곤",
           "count": 3
         },
         {
-          "rank": 7,
+          "rank": 9,
           "nick": "함대길",
           "count": 3
         },
         {
-          "rank": 8,
-          "nick": "나니고레",
-          "count": 3
-        },
-        {
-          "rank": 9,
-          "nick": "파랑이어울려",
-          "count": 3
-        },
-        {
           "rank": 10,
-          "nick": "조Ol보Ol",
+          "nick": "나니고레",
           "count": 3
         }
       ],
@@ -352,7 +352,7 @@
         {
           "rank": 3,
           "nick": "똥떼르만",
-          "count": 12
+          "count": 13
         },
         {
           "rank": 4,
@@ -519,33 +519,33 @@
         },
         {
           "rank": 5,
+          "nick": "파랑이어울려",
+          "count": 6
+        },
+        {
+          "rank": 6,
           "nick": "요코",
           "count": 5
         },
         {
-          "rank": 6,
+          "rank": 7,
           "nick": "beautywater",
           "count": 5
         },
         {
-          "rank": 7,
+          "rank": 8,
           "nick": "cbhdjshg",
           "count": 5
         },
         {
-          "rank": 8,
+          "rank": 9,
           "nick": "종자도주님",
           "count": 5
         },
         {
-          "rank": 9,
+          "rank": 10,
           "nick": "쏘토리봇치",
           "count": 5
-        },
-        {
-          "rank": 10,
-          "nick": "나니고레",
-          "count": 4
         }
       ],
       "weekly": [
@@ -597,7 +597,7 @@
         {
           "rank": 10,
           "nick": "쏘토리봇치",
-          "count": 627
+          "count": 624
         }
       ],
       "monthly": [
@@ -654,5 +654,5 @@
       ]
     }
   },
-  "errors": 896
+  "errors": 897
 }
