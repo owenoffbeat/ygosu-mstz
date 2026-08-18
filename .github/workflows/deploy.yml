@@ -1,0 +1,24 @@
+name: deploy-vercel
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'docs/**'
+      - '.github/workflows/deploy.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Deploy to Vercel
+        run: npx --yes vercel@latest --prod --yes --token "$VERCEL_TOKEN" --cwd docs
+        env:
+          VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
