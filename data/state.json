@@ -1,13 +1,13 @@
 {
   "progress": {
     "phase": "done",
-    "listPage": 2,
+    "listPage": 1,
     "scanned": 30773,
     "fetched": 14597,
     "votes": 19941,
     "errors": [],
-    "startedAt": "2026-08-19T05:14:44+09:00",
-    "lastRun": "2026-08-19T05:14:49+09:00"
+    "startedAt": "2026-08-19T05:15:34+09:00",
+    "lastRun": "2026-08-19T05:15:36+09:00"
   },
   "scanned": [
     1843991,
