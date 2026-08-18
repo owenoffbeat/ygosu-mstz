@@ -27,11 +27,65 @@ try {
   console.error(`[post-html] 오류: ${RANKINGS_FILE} 을(를) 읽을 수 없습니다 (${e.message})`);
   process.exit(1);
 }
+let rankingsData;
 try {
-  JSON.parse(rankingsText); // 깨진 JSON 은 여기서 실패 — exit 1
+  rankingsData = JSON.parse(rankingsText); // 깨진 JSON 은 여기서 실패 — exit 1
 } catch (e) {
   console.error(`[post-html] 오류: ${RANKINGS_FILE} 이(가) 유효한 JSON 이 아닙니다 (${e.message})`);
   process.exit(1);
+}
+
+// ============================================================
+// 랭크 배지 생성 — 1등 🥇 / 2등 🥈 / 3등 🥉 컬러 메달 이모지
+// (기존 금은동 틴트 칩 대체), 4~10등은 숫자 텍스트 유지.
+// 이모지 span 에 aria-label="N등" + title="N등" 부여 (접근성).
+// ============================================================
+
+const MEDAL_EMOJI = ['', '🥇', '🥈', '🥉'];
+
+function escHtml(s) {
+  return String(s).replace(/[&<>"']/g, function (c) {
+    return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c];
+  });
+}
+
+// rank 1~3 → <span class="rank" aria-label="N등" title="N등">🥇/🥈/🥉</span>
+// rank 4~10 → <span class="rank">N</span> (기존 숫자 스타일 유지)
+function medalBadge(rank) {
+  if (rank >= 1 && rank <= 3) {
+    const label = rank + '등';
+    return `<span class="rank" aria-label="${label}" title="${label}">${MEDAL_EMOJI[rank]}</span>`;
+  }
+  return `<span class="rank">${rank}</span>`;
+}
+
+// 12개 테이블 tbody 프리렌더 — 최초 로딩 즉시 순위 표시 (fetch 성공 시 클라이언트가 재렌더)
+function prerenderBody(m, p) {
+  const top = rankingsData.top || {};
+  const rows = Array.isArray(top[m] && top[m][p]) ? top[m][p] : [];
+  if (m === 'given' && top.given && top.given.unavailable) {
+    return { rows: '', empty: '추천한 수 지표는 제공되지 않습니다', emptyVisible: true };
+  }
+  if (rows.length === 0) {
+    return { rows: '', empty: '아직 데이터가 없습니다', emptyVisible: true };
+  }
+  let max = 1;
+  rows.forEach((r) => {
+    const c = Number(r.count) || 0;
+    if (c > max) max = c;
+  });
+  const body = rows.map((r) => {
+    const rank = Number(r.rank) || 0;
+    const count = Number(r.count) || 0;
+    const pct = Math.max(2, Math.round((count / max) * 100));
+    return '<tr>' +
+      '<td class="c-rank">' + medalBadge(rank) + '</td>' +
+      '<td class="c-nick" title="' + escHtml(r.nick) + '">' + escHtml(r.nick) + '</td>' +
+      '<td class="c-count"><span class="bar"><span class="bar-fill" style="width:' + pct + '%"></span></span>' +
+      '<span class="num">' + count + '</span></td>' +
+      '</tr>';
+  }).join('\n');
+  return { rows: body, empty: '', emptyVisible: false };
 }
 
 // ============================================================
@@ -77,12 +131,13 @@ function cardHtml(card) {
     `<button class="tab${i === 0 ? ' is-active' : ''}" type="button" role="tab" ` +
     `aria-selected="${i === 0}" data-period="${p.key}">${p.label}</button>`,
   ).join('\n');
-  const tables = PERIODS.map((p, i) =>
-    `<div class="tbl" id="tbl-${card.key}-${p.key}" data-metric="${card.key}" data-period="${p.key}"${i === 0 ? '' : ' hidden'}>` +
-    `<table><thead><tr><th class="c-rank">순위</th><th>닉네임</th>` +
-    `<th class="c-count">개수</th></tr></thead><tbody></tbody></table>` +
-    `<div class="tbl-empty" hidden></div></div>`,
-  ).join('\n');
+  const tables = PERIODS.map((p, i) => {
+    const body = prerenderBody(card.key, p.key);
+    return `<div class="tbl" id="tbl-${card.key}-${p.key}" data-metric="${card.key}" data-period="${p.key}"${i === 0 ? '' : ' hidden'}>` +
+      `<table><thead><tr><th class="c-rank">순위</th><th>닉네임</th>` +
+      `<th class="c-count">개수</th></tr></thead><tbody>\n${body.rows}\n</tbody></table>` +
+      `<div class="tbl-empty"${body.emptyVisible ? '' : ' hidden'}>${body.empty}</div></div>`;
+  }).join('\n');
   return (
     `<section class="card" data-metric="${card.key}" aria-label="${card.label} 랭킹">\n` +
     `  <div class="card-head">\n` +
@@ -118,6 +173,9 @@ const INLINE_SCRIPT = `(function () {
       return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c];
     });
   }
+
+  // 1~3등 컬러 메달 이모지 (유니코드 이스케이프 — 파일 인코딩과 무관하게 동작)
+  var MEDALS = ['', '\\uD83E\\uDD47', '\\uD83E\\uDD48', '\\uD83E\\uDD49'];
 
   function fmtKST(iso) {
     if (!iso) return '—';
@@ -189,9 +247,12 @@ const INLINE_SCRIPT = `(function () {
           var rank = Number(r.rank) || 0;
           var count = Number(r.count) || 0;
           var pct = Math.max(2, Math.round((count / max) * 100));
-          var medal = rank >= 1 && rank <= 3 ? ' r' + rank : '';
+          var top3 = rank >= 1 && rank <= 3;
+          var badge = top3
+            ? '<span class="rank" aria-label="' + rank + '등" title="' + rank + '등">' + MEDALS[rank] + '</span>'
+            : '<span class="rank">' + rank + '</span>';
           return '<tr>' +
-            '<td class="c-rank"><span class="rank' + medal + '">' + rank + '</span></td>' +
+            '<td class="c-rank">' + badge + '</td>' +
             '<td class="c-nick" title="' + esc(r.nick) + '">' + esc(r.nick) + '</td>' +
             '<td class="c-count"><span class="bar"><span class="bar-fill" style="width:' + pct + '%"></span></span>' +
             '<span class="num">' + count + '</span></td>' +
@@ -294,9 +355,6 @@ const PAGE_HTML = `<!DOCTYPE html>
     --accent: #6366f1;
     --accent-soft: #818cf8;
     --accent-tint: rgba(99, 102, 241, 0.1);
-    --gold: #e3b96a;
-    --silver: #a8b0c0;
-    --bronze: #c08a5e;
     --danger-bg: rgba(248, 113, 113, 0.07);
     --danger-border: rgba(248, 113, 113, 0.22);
     --success: #34d399;
@@ -504,36 +562,14 @@ const PAGE_HTML = `<!DOCTYPE html>
   .c-rank { width: 52px; }
 
   .rank {
-    display: inline-grid;
-    place-items: center;
-    min-width: 22px;
-    height: 22px;
-    padding: 0 5px;
-    border-radius: 6px;
-    font-size: 11px;
-    font-weight: 700;
+    display: inline-block;
+    vertical-align: middle;
+    font-family: "Segoe UI Emoji", "Apple Color Emoji", "Noto Color Emoji", sans-serif;
+    font-size: 17px;
+    line-height: 1;
     color: var(--text-faint);
-    background: rgba(255, 255, 255, 0.04);
-    border: 1px solid var(--border);
+    font-weight: 700;
     font-variant-numeric: tabular-nums;
-  }
-
-  .rank.r1 {
-    color: var(--gold);
-    background: rgba(227, 185, 106, 0.1);
-    border-color: rgba(227, 185, 106, 0.3);
-  }
-
-  .rank.r2 {
-    color: var(--silver);
-    background: rgba(168, 176, 192, 0.1);
-    border-color: rgba(168, 176, 192, 0.3);
-  }
-
-  .rank.r3 {
-    color: var(--bronze);
-    background: rgba(192, 138, 94, 0.1);
-    border-color: rgba(192, 138, 94, 0.3);
   }
 
   .c-nick {
