@@ -1,17 +1,17 @@
 {
-  "generatedAt": "2026-08-19T02:01:13+09:00",
+  "generatedAt": "2026-08-19T02:05:37+09:00",
   "periods": {
     "daily": {
       "start": "2026-08-19T00:00:00+09:00",
-      "end": "2026-08-19T02:01:13+09:00"
+      "end": "2026-08-19T02:05:37+09:00"
     },
     "weekly": {
-      "start": "2026-08-12T02:01:13+09:00",
-      "end": "2026-08-19T02:01:13+09:00"
+      "start": "2026-08-12T02:05:37+09:00",
+      "end": "2026-08-19T02:05:37+09:00"
     },
     "monthly": {
-      "start": "2026-07-20T02:01:13+09:00",
-      "end": "2026-08-19T02:01:13+09:00"
+      "start": "2026-07-20T02:05:37+09:00",
+      "end": "2026-08-19T02:05:37+09:00"
     }
   },
   "metrics": {
@@ -31,12 +31,12 @@
         {
           "rank": 2,
           "nick": "똥떼르만",
-          "count": 11
+          "count": 12
         },
         {
           "rank": 3,
           "nick": "폭탄공장막긴혀따",
-          "count": 10
+          "count": 11
         },
         {
           "rank": 4,
@@ -45,17 +45,17 @@
         },
         {
           "rank": 5,
-          "nick": "408주종발효",
+          "nick": "ApexApex",
           "count": 8
         },
         {
           "rank": 6,
-          "nick": "흙장난",
-          "count": 7
+          "nick": "408주종발효",
+          "count": 8
         },
         {
           "rank": 7,
-          "nick": "ApexApex",
+          "nick": "흙장난",
           "count": 7
         },
         {
@@ -83,7 +83,7 @@
         {
           "rank": 2,
           "nick": "폭탄공장막긴혀따",
-          "count": 402
+          "count": 403
         },
         {
           "rank": 3,
@@ -112,13 +112,13 @@
         },
         {
           "rank": 8,
-          "nick": "정전공포증",
+          "nick": "낭센세",
           "count": 273
         },
         {
           "rank": 9,
-          "nick": "낭센세",
-          "count": 272
+          "nick": "정전공포증",
+          "count": 273
         },
         {
           "rank": 10,
@@ -150,7 +150,7 @@
         {
           "rank": 5,
           "nick": "폭탄공장막긴혀따",
-          "count": 509
+          "count": 510
         },
         {
           "rank": 6,
@@ -165,7 +165,7 @@
         {
           "rank": 8,
           "nick": "낭센세",
-          "count": 397
+          "count": 398
         },
         {
           "rank": 9,
@@ -228,8 +228,8 @@
         },
         {
           "rank": 10,
-          "nick": "함대길",
-          "count": 4
+          "nick": "먼먼",
+          "count": 5
         }
       ],
       "weekly": [
@@ -342,51 +342,51 @@
         {
           "rank": 1,
           "nick": "똥떼르만",
-          "count": 35
+          "count": 37
         },
         {
           "rank": 2,
           "nick": "폭탄공장막긴혀따",
-          "count": 31
+          "count": 36
         },
         {
           "rank": 3,
+          "nick": "낭센세",
+          "count": 29
+        },
+        {
+          "rank": 4,
           "nick": "요코",
           "count": 25
         },
         {
-          "rank": 4,
+          "rank": 5,
           "nick": "와르가르",
           "count": 23
         },
         {
-          "rank": 5,
+          "rank": 6,
+          "nick": "ApexApex",
+          "count": 21
+        },
+        {
+          "rank": 7,
           "nick": "블랙하지마요",
           "count": 21
         },
         {
-          "rank": 6,
+          "rank": 8,
           "nick": "크리시포스",
           "count": 20
         },
         {
-          "rank": 7,
+          "rank": 9,
           "nick": "미마루",
           "count": 19
         },
         {
-          "rank": 8,
-          "nick": "낭센세",
-          "count": 17
-        },
-        {
-          "rank": 9,
-          "nick": "ApexApex",
-          "count": 17
-        },
-        {
           "rank": 10,
-          "nick": "유난이삐져또",
+          "nick": "아기븅저낭니",
           "count": 17
         }
       ],
@@ -399,7 +399,7 @@
         {
           "rank": 2,
           "nick": "낭센세",
-          "count": 1647
+          "count": 1659
         },
         {
           "rank": 3,
@@ -409,7 +409,7 @@
         {
           "rank": 4,
           "nick": "폭탄공장막긴혀따",
-          "count": 1334
+          "count": 1339
         },
         {
           "rank": 5,
@@ -456,12 +456,12 @@
         {
           "rank": 3,
           "nick": "낭센세",
-          "count": 2572
+          "count": 2584
         },
         {
           "rank": 4,
           "nick": "폭탄공장막긴혀따",
-          "count": 2331
+          "count": 2336
         },
         {
           "rank": 5,
@@ -505,37 +505,37 @@
         {
           "rank": 2,
           "nick": "끄앙앙",
-          "count": 74
+          "count": 85
         },
         {
           "rank": 3,
           "nick": "성흠이",
-          "count": 72
+          "count": 73
         },
         {
           "rank": 4,
-          "nick": "폭탄공장막긴혀따",
-          "count": 24
+          "nick": "낭센세",
+          "count": 26
         },
         {
           "rank": 5,
-          "nick": "낭센세",
-          "count": 15
+          "nick": "폭탄공장막긴혀따",
+          "count": 26
         },
         {
           "rank": 6,
-          "nick": "닝닝바라기",
-          "count": 11
+          "nick": "암레반",
+          "count": 14
         },
         {
           "rank": 7,
           "nick": "ApexApex",
-          "count": 10
+          "count": 13
         },
         {
           "rank": 8,
-          "nick": "암레반",
-          "count": 10
+          "nick": "닝닝바라기",
+          "count": 12
         },
         {
           "rank": 9,
@@ -544,7 +544,7 @@
         },
         {
           "rank": 10,
-          "nick": "뇌빈이",
+          "nick": "아기븅저낭니",
           "count": 9
         }
       ],
@@ -552,27 +552,27 @@
         {
           "rank": 1,
           "nick": "성흠이",
-          "count": 5211
+          "count": 5212
         },
         {
           "rank": 2,
           "nick": "끄앙앙",
-          "count": 2798
+          "count": 2809
         },
         {
           "rank": 3,
           "nick": "함바짐사장유나니",
-          "count": 2588
+          "count": 2578
         },
         {
           "rank": 4,
           "nick": "낭센세",
-          "count": 2010
+          "count": 2021
         },
         {
           "rank": 5,
           "nick": "폭탄공장막긴혀따",
-          "count": 1117
+          "count": 1116
         },
         {
           "rank": 6,
@@ -582,17 +582,17 @@
         {
           "rank": 7,
           "nick": "뷰봇궁금",
-          "count": 915
+          "count": 911
         },
         {
           "rank": 8,
           "nick": "암레반",
-          "count": 743
+          "count": 747
         },
         {
           "rank": 9,
           "nick": "로바타키요",
-          "count": 658
+          "count": 663
         },
         {
           "rank": 10,
@@ -604,12 +604,12 @@
         {
           "rank": 1,
           "nick": "성흠이",
-          "count": 7523
+          "count": 7524
         },
         {
           "rank": 2,
           "nick": "끄앙앙",
-          "count": 4489
+          "count": 4500
         },
         {
           "rank": 3,
@@ -619,7 +619,7 @@
         {
           "rank": 4,
           "nick": "낭센세",
-          "count": 2816
+          "count": 2827
         },
         {
           "rank": 5,
@@ -634,7 +634,7 @@
         {
           "rank": 7,
           "nick": "폭탄공장막긴혀따",
-          "count": 1500
+          "count": 1502
         },
         {
           "rank": 8,
@@ -644,15 +644,15 @@
         {
           "rank": 9,
           "nick": "미마루",
-          "count": 1423
+          "count": 1424
         },
         {
           "rank": 10,
           "nick": "로바타키요",
-          "count": 1255
+          "count": 1260
         }
       ]
     }
   },
-  "errors": 949
+  "errors": 954
 }
