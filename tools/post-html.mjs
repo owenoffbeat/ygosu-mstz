@@ -208,6 +208,18 @@ const INLINE_SCRIPT = `(function () {
     bannerEl.hidden = true;
   }
 
+  // iframe 높이 자동 조절 — 실제 콘텐츠 높이를 부모 페이지로 postMessage 발신
+  // (와이고수 게시판 임베드 시 모바일 1열 레이아웃에서 콘텐츠가 잘리는 문제 대응.
+  //  부모 페이지 측 스크립트가 ygosu-mstz-resize 메시지로 iframe 높이를 조절함)
+  function sendHeight() {
+    try {
+      var h = Math.max(document.body.scrollHeight, document.documentElement.scrollHeight);
+      window.parent.postMessage({ type: 'ygosu-mstz-resize', height: h }, '*');
+    } catch (e) {
+      // postMessage 실패는 치명적이지 않음 — 무시하고 진행
+    }
+  }
+
   function render(data) {
     if (!data || typeof data !== 'object') return;
     updatedEl.textContent = '마지막 갱신: ' + fmtKST(data.generatedAt);
@@ -276,10 +288,12 @@ const INLINE_SCRIPT = `(function () {
       .then(function (data) {
         hideBanner();
         render(data);
+        sendHeight(); // 데이터 갱신으로 높이 변동 가능 — 부모 프레임에 재전송
         schedule(REFRESH_MS); // 성공 시 5분 뒤 자동 재조회
       })
       .catch(function () {
         showBanner('랭킹 데이터를 불러오지 못했습니다 — 30초 후 자동으로 다시 시도합니다');
+        sendHeight(); // 배너 표시로 높이 변동 — 부모 프레임에 재전송
         schedule(RETRY_MS); // 실패 시 30초 뒤 자동 재시도
       });
   }
@@ -296,6 +310,7 @@ const INLINE_SCRIPT = `(function () {
     tables.forEach(function (tbl) {
       tbl.hidden = tbl.getAttribute('data-period') !== period;
     });
+    sendHeight(); // 탭 전환으로 테이블이 바뀌어 높이 변동 가능 — 부모 프레임에 재전송
   }
 
   Array.prototype.slice.call(document.querySelectorAll('.card')).forEach(function (card) {
@@ -328,6 +343,13 @@ const INLINE_SCRIPT = `(function () {
       next.focus();
     });
   });
+
+  // iframe 높이 자동 조절 — 프리렌더된 콘텐츠 기준 즉시 1회,
+  // 레이아웃 안정화 후 1회, load/resize(모바일 주소바·오리엔테이션) 시 재전송
+  sendHeight();
+  setTimeout(sendHeight, 300);
+  window.addEventListener('load', sendHeight);
+  window.addEventListener('resize', sendHeight);
 
   load();
 })();`;
