@@ -274,38 +274,6 @@
     color: var(--text-faint);
   }
 
-  .foot {
-    margin-top: 26px;
-    background: var(--card);
-    border: 1px solid var(--border);
-    border-radius: var(--radius);
-    padding: 16px 18px;
-    box-shadow: var(--shadow);
-  }
-
-  .foot h2 { font-size: 13px; font-weight: 800; margin-bottom: 8px; color: var(--text-dim); }
-
-  .foot ul { list-style: none; }
-
-  .foot li {
-    font-size: 12px;
-    color: var(--text-faint);
-    padding-left: 16px;
-    position: relative;
-    margin: 4px 0;
-  }
-
-  .foot li::before {
-    content: "";
-    position: absolute;
-    left: 2px;
-    top: 7px;
-    width: 6px;
-    height: 6px;
-    border-radius: 2px;
-    background: linear-gradient(135deg, var(--accent), var(--accent-2));
-  }
-
   @media (max-width: 760px) {
     body { padding: 16px 10px 32px; }
     .topbar { flex-direction: column; align-items: flex-start; }
@@ -421,17 +389,6 @@
 <div class="tbl" id="tbl-recv-monthly" data-metric="recv" data-period="monthly" hidden><table><thead><tr><th class="c-rank">순위</th><th>닉네임</th><th class="c-count">개수</th></tr></thead><tbody></tbody></table><div class="tbl-empty" hidden></div></div>
 </section>
   </main>
-
-  <footer class="foot">
-    <h2>데이터 정의</h2>
-    <ul>
-      <li>추천한 수 = 해당 기간에 작성된 글에 추천한 횟수입니다.</li>
-      <li>추천 0 이하인 글의 추천자는 집계되지 않습니다.</li>
-      <li>익명(비로그인) 댓글 작성자는 순위에서 제외됩니다.</li>
-      <li>모든 시각은 한국 표준시(KST) 기준입니다.</li>
-      <li>이 페이지는 5분마다 자동으로 최신 데이터를 다시 불러옵니다.</li>
-    </ul>
-  </footer>
 
 </div>
 
