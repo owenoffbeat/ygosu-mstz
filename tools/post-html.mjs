@@ -5,8 +5,8 @@
 //   1. docs/rankings.json  — 데이터 사본 (JSON 그대로)
 //   2. docs/index.html     — 자체완결 정적 대시보드 (외부 리소스 0, <style>+<script> 인라인)
 //                            원본 index.html 의 UI(다크 테마, 지표 4×기간 3 탭, TOP10 표)를 재현.
-//                            fetch 대상은 상대경로 ./rankings.json, 실패 시 배너+30초 재시도,
-//                            성공 시 5분마다 자동 재조회로 화면 갱신.
+//                            fetch 대상은 GitHub Pages의 절대 URL + 캐시 버스트 쿼리,
+//                            실패 시 배너+30초 재시도, 성공 시 5분마다 자동 재조회로 화면 갱신.
 //
 // rankings.json 이 없거나 깨져 있으면 에러 + exit 1.
 import { readFileSync, writeFileSync, mkdirSync, copyFileSync } from 'node:fs';
@@ -223,22 +223,48 @@ const INLINE_SCRIPT = `(function () {
       });
   }
 
-  // 기간 탭 전환
+  // 기간 탭 전환 (클릭 + 키보드 내비게이션)
+  function activateTab(tab, tabs, tables) {
+    var period = tab.getAttribute('data-period');
+    tabs.forEach(function (t) {
+      var on = t === tab;
+      t.classList.toggle('is-active', on);
+      t.setAttribute('aria-selected', on ? 'true' : 'false');
+      t.setAttribute('tabindex', on ? '0' : '-1');
+    });
+    tables.forEach(function (tbl) {
+      tbl.hidden = tbl.getAttribute('data-period') !== period;
+    });
+  }
+
   Array.prototype.slice.call(document.querySelectorAll('.card')).forEach(function (card) {
     var tabs = card.querySelectorAll('.tab');
     var tables = card.querySelectorAll('.tbl');
+    var tablist = card.querySelector('.tabs');
     tabs.forEach(function (tab) {
+      tab.setAttribute('tabindex', tab.classList.contains('is-active') ? '0' : '-1');
       tab.addEventListener('click', function () {
-        var period = tab.getAttribute('data-period');
-        tabs.forEach(function (t) {
-          var on = t === tab;
-          t.classList.toggle('is-active', on);
-          t.setAttribute('aria-selected', on ? 'true' : 'false');
-        });
-        tables.forEach(function (tbl) {
-          tbl.hidden = tbl.getAttribute('data-period') !== period;
-        });
+        activateTab(tab, tabs, tables);
       });
+    });
+    tablist.addEventListener('keydown', function (e) {
+      var idx = Array.prototype.indexOf.call(tabs, document.activeElement);
+      if (idx === -1) return;
+      var next;
+      if (e.key === 'ArrowRight') {
+        next = tabs[(idx + 1) % tabs.length];
+      } else if (e.key === 'ArrowLeft') {
+        next = tabs[(idx - 1 + tabs.length) % tabs.length];
+      } else if (e.key === 'Home') {
+        next = tabs[0];
+      } else if (e.key === 'End') {
+        next = tabs[tabs.length - 1];
+      } else {
+        return;
+      }
+      e.preventDefault();
+      activateTab(next, tabs, tables);
+      next.focus();
     });
   });
 
@@ -264,14 +290,17 @@ const PAGE_HTML = `<!DOCTYPE html>
     --border-strong: rgba(255, 255, 255, 0.13);
     --text: #e7eaf1;
     --text-dim: #98a1b3;
-    --text-faint: #5d6678;
+    --text-faint: #7a8499;
     --accent: #6366f1;
     --accent-soft: #818cf8;
     --accent-tint: rgba(99, 102, 241, 0.1);
     --gold: #e3b96a;
     --silver: #a8b0c0;
     --bronze: #c08a5e;
-    --danger: #f87171;
+    --danger-bg: rgba(248, 113, 113, 0.07);
+    --danger-border: rgba(248, 113, 113, 0.22);
+    --success: #34d399;
+    --success-glow: rgba(52, 211, 153, 0.12);
     --radius: 12px;
     --shadow-md: 0 1px 2px rgba(0, 0, 0, 0.4), 0 8px 24px rgba(0, 0, 0, 0.25);
     --shadow-lg: 0 2px 4px rgba(0, 0, 0, 0.4), 0 12px 32px rgba(0, 0, 0, 0.32);
@@ -338,8 +367,8 @@ const PAGE_HTML = `<!DOCTYPE html>
     width: 6px;
     height: 6px;
     border-radius: 50%;
-    background: #34d399;
-    box-shadow: 0 0 0 3px rgba(52, 211, 153, 0.12);
+    background: var(--success);
+    box-shadow: 0 0 0 3px var(--success-glow);
     flex: none;
   }
 
@@ -347,8 +376,8 @@ const PAGE_HTML = `<!DOCTYPE html>
     display: flex;
     align-items: center;
     gap: 10px;
-    background: rgba(248, 113, 113, 0.07);
-    border: 1px solid rgba(248, 113, 113, 0.22);
+    background: var(--danger-bg);
+    border: 1px solid var(--danger-border);
     color: #fca5a5;
     font-size: 13px;
     font-weight: 600;
@@ -358,8 +387,6 @@ const PAGE_HTML = `<!DOCTYPE html>
   }
 
   .banner svg { width: 16px; height: 16px; flex: none; }
-
-  .banner[hidden] { display: none; }
 
   .cards {
     display: grid;
@@ -374,13 +401,12 @@ const PAGE_HTML = `<!DOCTYPE html>
     padding: 18px;
     box-shadow: var(--shadow-md);
     min-width: 0;
-    transition: transform 0.18s ease, border-color 0.18s ease,
-      box-shadow 0.18s ease, background 0.18s ease;
+    transition: border-color 0.18s ease, box-shadow 0.18s ease,
+      background 0.18s ease;
   }
 
   @media (hover: hover) {
     .card:hover {
-      transform: translateY(-2px);
       border-color: var(--border-strong);
       background: var(--card-hover);
       box-shadow: var(--shadow-lg);
@@ -460,7 +486,6 @@ const PAGE_HTML = `<!DOCTYPE html>
     letter-spacing: 0.06em;
   }
 
-  .tbl thead th.c-rank { width: 52px; }
   .tbl thead th.c-count { width: 46%; text-align: right; }
 
   .tbl tbody td {
