@@ -1,17 +1,17 @@
 {
-  "generatedAt": "2026-08-19T00:35:34+09:00",
+  "generatedAt": "2026-08-19T00:40:47+09:00",
   "periods": {
     "daily": {
       "start": "2026-08-19T00:00:00+09:00",
-      "end": "2026-08-19T00:35:34+09:00"
+      "end": "2026-08-19T00:40:47+09:00"
     },
     "weekly": {
-      "start": "2026-08-12T00:35:34+09:00",
-      "end": "2026-08-19T00:35:34+09:00"
+      "start": "2026-08-12T00:40:47+09:00",
+      "end": "2026-08-19T00:40:47+09:00"
     },
     "monthly": {
-      "start": "2026-07-20T00:35:34+09:00",
-      "end": "2026-08-19T00:35:34+09:00"
+      "start": "2026-07-20T00:40:47+09:00",
+      "end": "2026-08-19T00:40:47+09:00"
     }
   },
   "metrics": {
@@ -26,59 +26,59 @@
         {
           "rank": 1,
           "nick": "세트카전단지",
-          "count": 7
+          "count": 8
         },
         {
           "rank": 2,
+          "nick": "유난이삐져또",
+          "count": 6
+        },
+        {
+          "rank": 3,
           "nick": "함바짐사장유나니",
           "count": 5
         },
         {
-          "rank": 3,
+          "rank": 4,
           "nick": "암드래곤7",
           "count": 5
         },
         {
-          "rank": 4,
+          "rank": 5,
           "nick": "요코",
           "count": 5
         },
         {
-          "rank": 5,
-          "nick": "유난이삐져또",
+          "rank": 6,
+          "nick": "똥떼르만",
           "count": 5
         },
         {
-          "rank": 6,
+          "rank": 7,
           "nick": "Brain",
           "count": 4
         },
         {
-          "rank": 7,
-          "nick": "똥떼르만",
-          "count": 4
-        },
-        {
           "rank": 8,
-          "nick": "암신사",
+          "nick": "암애",
           "count": 4
         },
         {
           "rank": 9,
-          "nick": "나니고레",
-          "count": 3
+          "nick": "꼬마요정요닝",
+          "count": 4
         },
         {
           "rank": 10,
-          "nick": "암애",
-          "count": 3
+          "nick": "암신사",
+          "count": 4
         }
       ],
       "weekly": [
         {
           "rank": 1,
           "nick": "유난이삐져또",
-          "count": 489
+          "count": 490
         },
         {
           "rank": 2,
@@ -88,7 +88,7 @@
         {
           "rank": 3,
           "nick": "품격",
-          "count": 371
+          "count": 372
         },
         {
           "rank": 4,
@@ -113,7 +113,7 @@
         {
           "rank": 8,
           "nick": "정전공포증",
-          "count": 272
+          "count": 273
         },
         {
           "rank": 9,
@@ -130,7 +130,7 @@
         {
           "rank": 1,
           "nick": "유난이삐져또",
-          "count": 680
+          "count": 681
         },
         {
           "rank": 2,
@@ -140,7 +140,7 @@
         {
           "rank": 3,
           "nick": "품격",
-          "count": 560
+          "count": 561
         },
         {
           "rank": 4,
@@ -175,7 +175,7 @@
         {
           "rank": 10,
           "nick": "정전공포증",
-          "count": 383
+          "count": 384
         }
       ]
     },
@@ -193,27 +193,27 @@
         },
         {
           "rank": 3,
-          "nick": "폭탄공장막긴혀따",
+          "nick": "dingdiring",
           "count": 4
         },
         {
           "rank": 4,
+          "nick": "폭탄공장막긴혀따",
+          "count": 4
+        },
+        {
+          "rank": 5,
           "nick": "내가오늘",
           "count": 3
         },
         {
-          "rank": 5,
+          "rank": 6,
           "nick": "장래희망지드래곤",
           "count": 3
         },
         {
-          "rank": 6,
-          "nick": "함대길",
-          "count": 3
-        },
-        {
           "rank": 7,
-          "nick": "dingdiring",
+          "nick": "함대길",
           "count": 3
         },
         {
@@ -271,7 +271,7 @@
         {
           "rank": 8,
           "nick": "꼬마요정요닝",
-          "count": 499
+          "count": 500
         },
         {
           "rank": 9,
@@ -347,7 +347,7 @@
         {
           "rank": 2,
           "nick": "유난이삐져또",
-          "count": 16
+          "count": 17
         },
         {
           "rank": 3,
@@ -357,36 +357,36 @@
         {
           "rank": 4,
           "nick": "함대길",
-          "count": 10
+          "count": 11
         },
         {
           "rank": 5,
+          "nick": "똥떼르만",
+          "count": 11
+        },
+        {
+          "rank": 6,
           "nick": "사신조",
           "count": 10
         },
         {
-          "rank": 6,
-          "nick": "똥떼르만",
-          "count": 10
-        },
-        {
           "rank": 7,
-          "nick": "조Ol보Ol",
+          "nick": "암애",
           "count": 9
         },
         {
           "rank": 8,
-          "nick": "brownsuya",
+          "nick": "조Ol보Ol",
           "count": 9
         },
         {
           "rank": 9,
-          "nick": "파닭",
-          "count": 8
+          "nick": "brownsuya",
+          "count": 9
         },
         {
           "rank": 10,
-          "nick": "폭탄공장막긴혀따",
+          "nick": "파닭",
           "count": 8
         }
       ],
@@ -404,7 +404,7 @@
         {
           "rank": 3,
           "nick": "품격",
-          "count": 1512
+          "count": 1513
         },
         {
           "rank": 4,
@@ -451,7 +451,7 @@
         {
           "rank": 2,
           "nick": "품격",
-          "count": 2609
+          "count": 2610
         },
         {
           "rank": 3,
@@ -500,7 +500,7 @@
         {
           "rank": 1,
           "nick": "함바짐사장유나니",
-          "count": 85
+          "count": 109
         },
         {
           "rank": 2,
@@ -562,7 +562,7 @@
         {
           "rank": 3,
           "nick": "함바짐사장유나니",
-          "count": 2626
+          "count": 2650
         },
         {
           "rank": 4,
@@ -577,27 +577,27 @@
         {
           "rank": 6,
           "nick": "fancy-",
-          "count": 947
+          "count": 943
         },
         {
           "rank": 7,
           "nick": "뷰봇궁금",
-          "count": 922
+          "count": 923
         },
         {
           "rank": 8,
           "nick": "암레반",
-          "count": 737
+          "count": 736
         },
         {
           "rank": 9,
           "nick": "로바타키요",
-          "count": 662
+          "count": 661
         },
         {
           "rank": 10,
           "nick": "쏘토리봇치",
-          "count": 628
+          "count": 627
         }
       ],
       "monthly": [
@@ -614,7 +614,7 @@
         {
           "rank": 3,
           "nick": "함바짐사장유나니",
-          "count": 3922
+          "count": 3946
         },
         {
           "rank": 4,
@@ -629,7 +629,7 @@
         {
           "rank": 6,
           "nick": "뷰봇궁금",
-          "count": 1514
+          "count": 1515
         },
         {
           "rank": 7,
