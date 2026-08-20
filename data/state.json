@@ -1,13 +1,18 @@
 {
   "progress": {
     "phase": "done",
-    "listPage": 2,
+    "listPage": 0,
     "scanned": 33969,
     "fetched": 15678,
     "votes": 21503,
-    "errors": [],
-    "startedAt": "2026-08-20T15:50:27+09:00",
-    "lastRun": "2026-08-20T15:50:36+09:00"
+    "errors": [
+      {
+        "at": "2026-08-20T15:55:41+09:00",
+        "message": "list page 1 fetch failed: HTTP 500 for https://m.ygosu.com/board/pan_monstarz?page=1"
+      }
+    ],
+    "startedAt": "2026-08-20T15:55:24+09:00",
+    "lastRun": "2026-08-20T15:55:41+09:00"
   },
   "scanned": [
     1843991,
