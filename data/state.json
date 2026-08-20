@@ -1,18 +1,13 @@
 {
   "progress": {
     "phase": "done",
-    "listPage": 0,
-    "scanned": 37845,
+    "listPage": 2,
+    "scanned": 37846,
     "fetched": 16840,
     "votes": 23698,
-    "errors": [
-      {
-        "at": "2026-08-21T07:18:23+09:00",
-        "message": "list page 1 fetch failed: HTTP 504 for https://m.ygosu.com/board/pan_monstarz?page=1"
-      }
-    ],
-    "startedAt": "2026-08-21T07:16:07+09:00",
-    "lastRun": "2026-08-21T07:18:23+09:00"
+    "errors": [],
+    "startedAt": "2026-08-21T07:20:33+09:00",
+    "lastRun": "2026-08-21T07:23:02+09:00"
   },
   "scanned": [
     1843991,
@@ -37859,7 +37854,8 @@
     1862633,
     1862632,
     1862636,
-    1862635
+    1862635,
+    1862637
   ],
   "fetched": [
     1843988,
