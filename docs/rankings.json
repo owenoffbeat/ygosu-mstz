@@ -1,17 +1,17 @@
 {
-  "generatedAt": "2026-08-22T01:40:48+09:00",
+  "generatedAt": "2026-08-22T01:45:59+09:00",
   "periods": {
     "daily": {
       "start": "2026-08-22T00:00:00+09:00",
-      "end": "2026-08-22T01:40:48+09:00"
+      "end": "2026-08-22T01:45:59+09:00"
     },
     "weekly": {
-      "start": "2026-08-15T01:40:48+09:00",
-      "end": "2026-08-22T01:40:48+09:00"
+      "start": "2026-08-15T01:45:59+09:00",
+      "end": "2026-08-22T01:45:59+09:00"
     },
     "monthly": {
-      "start": "2026-07-23T01:40:48+09:00",
-      "end": "2026-08-22T01:40:48+09:00"
+      "start": "2026-07-23T01:45:59+09:00",
+      "end": "2026-08-22T01:45:59+09:00"
     }
   },
   "metrics": {
@@ -26,16 +26,16 @@
         {
           "rank": 1,
           "nick": "이런병신같은빌드",
-          "count": 26
+          "count": 27
         },
         {
           "rank": 2,
-          "nick": "크리시포스",
-          "count": 19
+          "nick": "요코",
+          "count": 20
         },
         {
           "rank": 3,
-          "nick": "요코",
+          "nick": "크리시포스",
           "count": 19
         },
         {
@@ -46,32 +46,32 @@
         {
           "rank": 5,
           "nick": "디즐라이",
-          "count": 16
+          "count": 17
         },
         {
           "rank": 6,
           "nick": "고은청년",
-          "count": 15
+          "count": 17
         },
         {
           "rank": 7,
-          "nick": "Minimaxii",
-          "count": 14
+          "nick": "암신사",
+          "count": 16
         },
         {
           "rank": 8,
-          "nick": "암재인",
-          "count": 14
+          "nick": "Minimaxii",
+          "count": 15
         },
         {
           "rank": 9,
-          "nick": "암신사",
+          "nick": "낭센세",
           "count": 14
         },
         {
           "rank": 10,
-          "nick": "낭센세",
-          "count": 13
+          "nick": "암재인",
+          "count": 14
         }
       ],
       "weekly": [
@@ -83,7 +83,7 @@
         {
           "rank": 2,
           "nick": "요코",
-          "count": 474
+          "count": 475
         },
         {
           "rank": 3,
@@ -93,7 +93,7 @@
         {
           "rank": 4,
           "nick": "이런병신같은빌드",
-          "count": 387
+          "count": 388
         },
         {
           "rank": 5,
@@ -108,7 +108,7 @@
         {
           "rank": 7,
           "nick": "뚱땡이싫어",
-          "count": 303
+          "count": 304
         },
         {
           "rank": 8,
@@ -165,12 +165,12 @@
         {
           "rank": 8,
           "nick": "요코",
-          "count": 535
+          "count": 536
         },
         {
           "rank": 9,
           "nick": "뚱땡이싫어",
-          "count": 509
+          "count": 510
         },
         {
           "rank": 10,
@@ -194,7 +194,7 @@
         {
           "rank": 3,
           "nick": "암버러지",
-          "count": 29
+          "count": 31
         },
         {
           "rank": 4,
@@ -204,12 +204,12 @@
         {
           "rank": 5,
           "nick": "마망순이",
-          "count": 18
+          "count": 19
         },
         {
           "rank": 6,
           "nick": "미마루",
-          "count": 18
+          "count": 19
         },
         {
           "rank": 7,
@@ -229,7 +229,7 @@
         {
           "rank": 10,
           "nick": "요코",
-          "count": 13
+          "count": 14
         }
       ],
       "weekly": [
@@ -251,7 +251,7 @@
         {
           "rank": 4,
           "nick": "미마루",
-          "count": 482
+          "count": 483
         },
         {
           "rank": 5,
@@ -261,12 +261,12 @@
         {
           "rank": 6,
           "nick": "메가도스C",
-          "count": 415
+          "count": 416
         },
         {
           "rank": 7,
           "nick": "요코",
-          "count": 406
+          "count": 407
         },
         {
           "rank": 8,
@@ -303,7 +303,7 @@
         {
           "rank": 4,
           "nick": "메가도스C",
-          "count": 1185
+          "count": 1186
         },
         {
           "rank": 5,
@@ -342,7 +342,7 @@
         {
           "rank": 1,
           "nick": "이런병신같은빌드",
-          "count": 64
+          "count": 66
         },
         {
           "rank": 2,
@@ -377,17 +377,17 @@
         {
           "rank": 8,
           "nick": "마망순이",
-          "count": 30
+          "count": 31
         },
         {
           "rank": 9,
-          "nick": "암버러지",
-          "count": 29
+          "nick": "Minimaxii",
+          "count": 30
         },
         {
           "rank": 10,
-          "nick": "Minimaxii",
-          "count": 27
+          "nick": "암버러지",
+          "count": 30
         }
       ],
       "weekly": [
@@ -399,7 +399,7 @@
         {
           "rank": 2,
           "nick": "메가도스C",
-          "count": 1376
+          "count": 1384
         },
         {
           "rank": 3,
@@ -429,7 +429,7 @@
         {
           "rank": 8,
           "nick": "낭센세",
-          "count": 893
+          "count": 895
         },
         {
           "rank": 9,
@@ -439,19 +439,19 @@
         {
           "rank": 10,
           "nick": "이런병신같은빌드",
-          "count": 841
+          "count": 843
         }
       ],
       "monthly": [
         {
           "rank": 1,
           "nick": "메가도스C",
-          "count": 3885
+          "count": 3893
         },
         {
           "rank": 2,
           "nick": "낭센세",
-          "count": 2886
+          "count": 2888
         },
         {
           "rank": 3,
@@ -500,12 +500,12 @@
         {
           "rank": 1,
           "nick": "성흠이",
-          "count": 209
+          "count": 229
         },
         {
           "rank": 2,
           "nick": "낭센세",
-          "count": 45
+          "count": 55
         },
         {
           "rank": 3,
@@ -520,7 +520,7 @@
         {
           "rank": 5,
           "nick": "미마루",
-          "count": 38
+          "count": 39
         },
         {
           "rank": 6,
@@ -530,12 +530,12 @@
         {
           "rank": 7,
           "nick": "라이프치히",
-          "count": 26
+          "count": 29
         },
         {
           "rank": 8,
           "nick": "뷰봇궁금",
-          "count": 26
+          "count": 28
         },
         {
           "rank": 9,
@@ -544,15 +544,15 @@
         },
         {
           "rank": 10,
-          "nick": "뇌빈이",
-          "count": 19
+          "nick": "영양사",
+          "count": 20
         }
       ],
       "weekly": [
         {
           "rank": 1,
           "nick": "성흠이",
-          "count": 5902
+          "count": 5911
         },
         {
           "rank": 2,
@@ -562,49 +562,49 @@
         {
           "rank": 3,
           "nick": "함바짐사장유나니",
-          "count": 2104
+          "count": 2103
         },
         {
           "rank": 4,
           "nick": "낭센세",
-          "count": 1724
+          "count": 1725
         },
         {
           "rank": 5,
           "nick": "암레반",
-          "count": 997
+          "count": 998
         },
         {
           "rank": 6,
           "nick": "폭탄공장막긴혀따",
-          "count": 946
+          "count": 945
         },
         {
           "rank": 7,
           "nick": "뷰봇궁금",
-          "count": 864
+          "count": 866
         },
         {
           "rank": 8,
           "nick": "미마루",
-          "count": 826
+          "count": 827
         },
         {
           "rank": 9,
           "nick": "fancy-",
-          "count": 785
+          "count": 789
         },
         {
           "rank": 10,
           "nick": "함바뷔폐척살단",
-          "count": 683
+          "count": 682
         }
       ],
       "monthly": [
         {
           "rank": 1,
           "nick": "성흠이",
-          "count": 10086
+          "count": 10106
         },
         {
           "rank": 2,
@@ -619,12 +619,12 @@
         {
           "rank": 4,
           "nick": "낭센세",
-          "count": 3230
+          "count": 3240
         },
         {
           "rank": 5,
           "nick": "fancy-",
-          "count": 2069
+          "count": 2073
         },
         {
           "rank": 6,
@@ -634,12 +634,12 @@
         {
           "rank": 7,
           "nick": "미마루",
-          "count": 1760
+          "count": 1761
         },
         {
           "rank": 8,
           "nick": "뷰봇궁금",
-          "count": 1721
+          "count": 1723
         },
         {
           "rank": 9,
@@ -649,10 +649,10 @@
         {
           "rank": 10,
           "nick": "암레반",
-          "count": 1402
+          "count": 1403
         }
       ]
     }
   },
-  "errors": 3638
+  "errors": 3650
 }
