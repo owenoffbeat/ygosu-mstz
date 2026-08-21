@@ -1,17 +1,17 @@
 {
-  "generatedAt": "2026-08-22T00:01:21+09:00",
+  "generatedAt": "2026-08-22T00:05:37+09:00",
   "periods": {
     "daily": {
       "start": "2026-08-22T00:00:00+09:00",
-      "end": "2026-08-22T00:01:21+09:00"
+      "end": "2026-08-22T00:05:37+09:00"
     },
     "weekly": {
-      "start": "2026-08-15T00:01:21+09:00",
-      "end": "2026-08-22T00:01:21+09:00"
+      "start": "2026-08-15T00:05:37+09:00",
+      "end": "2026-08-22T00:05:37+09:00"
     },
     "monthly": {
-      "start": "2026-07-23T00:01:21+09:00",
-      "end": "2026-08-22T00:01:21+09:00"
+      "start": "2026-07-23T00:05:37+09:00",
+      "end": "2026-08-22T00:05:37+09:00"
     }
   },
   "metrics": {
@@ -26,51 +26,51 @@
         {
           "rank": 1,
           "nick": "MIRAEDO",
-          "count": 2
+          "count": 6
         },
         {
           "rank": 2,
-          "nick": "오복이",
-          "count": 1
+          "nick": "암재인",
+          "count": 3
         },
         {
           "rank": 3,
-          "nick": "유일신유난",
-          "count": 1
+          "nick": "Minimaxii",
+          "count": 2
         },
         {
           "rank": 4,
-          "nick": "마망순이",
-          "count": 1
+          "nick": "흙장난",
+          "count": 2
         },
         {
           "rank": 5,
-          "nick": "영양사",
-          "count": 1
+          "nick": "저그반살려내",
+          "count": 2
         },
         {
           "rank": 6,
-          "nick": "무야힝힝",
-          "count": 1
+          "nick": "밍애",
+          "count": 2
         },
         {
           "rank": 7,
-          "nick": "940825",
-          "count": 1
+          "nick": "pprppr",
+          "count": 2
         },
         {
           "rank": 8,
-          "nick": "나의_영웅_김윤환",
+          "nick": "낭에오",
           "count": 1
         },
         {
           "rank": 9,
-          "nick": "요코",
+          "nick": "파벳임",
           "count": 1
         },
         {
           "rank": 10,
-          "nick": "암재인",
+          "nick": "오복이",
           "count": 1
         }
       ],
@@ -88,7 +88,7 @@
         {
           "rank": 3,
           "nick": "폭탄공장막긴혀따",
-          "count": 423
+          "count": 424
         },
         {
           "rank": 4,
@@ -113,7 +113,7 @@
         {
           "rank": 8,
           "nick": "뚱땡이싫어",
-          "count": 296
+          "count": 297
         },
         {
           "rank": 9,
@@ -140,7 +140,7 @@
         {
           "rank": 3,
           "nick": "폭탄공장막긴혀따",
-          "count": 721
+          "count": 722
         },
         {
           "rank": 4,
@@ -170,7 +170,7 @@
         {
           "rank": 9,
           "nick": "뚱땡이싫어",
-          "count": 502
+          "count": 503
         },
         {
           "rank": 10,
@@ -183,17 +183,52 @@
       "daily": [
         {
           "rank": 1,
+          "nick": "아기븅저낭니",
+          "count": 3
+        },
+        {
+          "rank": 2,
+          "nick": "낭에오",
+          "count": 2
+        },
+        {
+          "rank": 3,
+          "nick": "유일신유난",
+          "count": 2
+        },
+        {
+          "rank": 4,
+          "nick": "디자인바이",
+          "count": 2
+        },
+        {
+          "rank": 5,
+          "nick": "구심",
+          "count": 2
+        },
+        {
+          "rank": 6,
+          "nick": "암크예거",
+          "count": 1
+        },
+        {
+          "rank": 7,
+          "nick": "건즈앤로지스",
+          "count": 1
+        },
+        {
+          "rank": 8,
           "nick": "Monstarz",
           "count": 1
         },
         {
-          "rank": 2,
-          "nick": "븅저",
+          "rank": 9,
+          "nick": "낭센세",
           "count": 1
         },
         {
-          "rank": 3,
-          "nick": "구심",
+          "rank": 10,
+          "nick": "윤환의검",
           "count": 1
         }
       ],
@@ -303,7 +338,58 @@
       ]
     },
     "recv": {
-      "daily": [],
+      "daily": [
+        {
+          "rank": 1,
+          "nick": "유일신유난",
+          "count": 5
+        },
+        {
+          "rank": 2,
+          "nick": "아기븅저낭니",
+          "count": 3
+        },
+        {
+          "rank": 3,
+          "nick": "디자인바이",
+          "count": 3
+        },
+        {
+          "rank": 4,
+          "nick": "저그반살려내",
+          "count": 3
+        },
+        {
+          "rank": 5,
+          "nick": "Minimaxii",
+          "count": 2
+        },
+        {
+          "rank": 6,
+          "nick": "MIRAEDO",
+          "count": 2
+        },
+        {
+          "rank": 7,
+          "nick": "암버러지",
+          "count": 2
+        },
+        {
+          "rank": 8,
+          "nick": "암재인",
+          "count": 2
+        },
+        {
+          "rank": 9,
+          "nick": "디즐라이",
+          "count": 2
+        },
+        {
+          "rank": 10,
+          "nick": "공투사토마토",
+          "count": 1
+        }
+      ],
       "weekly": [
         {
           "rank": 1,
@@ -318,7 +404,7 @@
         {
           "rank": 3,
           "nick": "암재인",
-          "count": 1101
+          "count": 1103
         },
         {
           "rank": 4,
@@ -343,7 +429,7 @@
         {
           "rank": 8,
           "nick": "낭센세",
-          "count": 867
+          "count": 868
         },
         {
           "rank": 9,
@@ -365,7 +451,7 @@
         {
           "rank": 2,
           "nick": "낭센세",
-          "count": 2860
+          "count": 2861
         },
         {
           "rank": 3,
@@ -413,17 +499,52 @@
       "daily": [
         {
           "rank": 1,
-          "nick": "룡땡마앵",
-          "count": 1
+          "nick": "성흠이",
+          "count": 3
         },
         {
           "rank": 2,
           "nick": "미멀먹고멀미",
-          "count": 1
+          "count": 2
         },
         {
           "rank": 3,
+          "nick": "아기븅저낭니",
+          "count": 1
+        },
+        {
+          "rank": 4,
+          "nick": "룡땡마앵",
+          "count": 1
+        },
+        {
+          "rank": 5,
+          "nick": "낭센세",
+          "count": 1
+        },
+        {
+          "rank": 6,
+          "nick": "시그너스상향점",
+          "count": 1
+        },
+        {
+          "rank": 7,
+          "nick": "시드니의별",
+          "count": 1
+        },
+        {
+          "rank": 8,
+          "nick": "영양사",
+          "count": 1
+        },
+        {
+          "rank": 9,
           "nick": "암버러지",
+          "count": 1
+        },
+        {
+          "rank": 10,
+          "nick": "암재인",
           "count": 1
         }
       ],
@@ -431,7 +552,7 @@
         {
           "rank": 1,
           "nick": "성흠이",
-          "count": 5857
+          "count": 5860
         },
         {
           "rank": 2,
@@ -446,7 +567,7 @@
         {
           "rank": 4,
           "nick": "낭센세",
-          "count": 1792
+          "count": 1793
         },
         {
           "rank": 5,
@@ -456,7 +577,7 @@
         {
           "rank": 6,
           "nick": "폭탄공장막긴혀따",
-          "count": 955
+          "count": 956
         },
         {
           "rank": 7,
@@ -476,14 +597,14 @@
         {
           "rank": 10,
           "nick": "함바뷔폐척살단",
-          "count": 665
+          "count": 666
         }
       ],
       "monthly": [
         {
           "rank": 1,
           "nick": "성흠이",
-          "count": 9877
+          "count": 9880
         },
         {
           "rank": 2,
@@ -498,7 +619,7 @@
         {
           "rank": 4,
           "nick": "낭센세",
-          "count": 3185
+          "count": 3186
         },
         {
           "rank": 5,
@@ -508,7 +629,7 @@
         {
           "rank": 6,
           "nick": "폭탄공장막긴혀따",
-          "count": 1849
+          "count": 1850
         },
         {
           "rank": 7,
@@ -533,5 +654,5 @@
       ]
     }
   },
-  "errors": 3389
+  "errors": 3401
 }
