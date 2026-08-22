@@ -1,17 +1,17 @@
 {
-  "generatedAt": "2026-08-23T00:10:34+09:00",
+  "generatedAt": "2026-08-23T00:15:41+09:00",
   "periods": {
     "daily": {
       "start": "2026-08-23T00:00:00+09:00",
-      "end": "2026-08-23T00:10:34+09:00"
+      "end": "2026-08-23T00:15:41+09:00"
     },
     "weekly": {
-      "start": "2026-08-16T00:10:34+09:00",
-      "end": "2026-08-23T00:10:34+09:00"
+      "start": "2026-08-16T00:15:41+09:00",
+      "end": "2026-08-23T00:15:41+09:00"
     },
     "monthly": {
-      "start": "2026-07-24T00:10:34+09:00",
-      "end": "2026-08-23T00:10:34+09:00"
+      "start": "2026-07-24T00:15:41+09:00",
+      "end": "2026-08-23T00:15:41+09:00"
     }
   },
   "metrics": {
@@ -30,47 +30,47 @@
         },
         {
           "rank": 2,
-          "nick": "댕냥멍꿍",
+          "nick": "암크예거",
           "count": 3
         },
         {
           "rank": 3,
-          "nick": "암크예거",
-          "count": 2
+          "nick": "댕냥멍꿍",
+          "count": 3
         },
         {
           "rank": 4,
-          "nick": "어렵다어려워1",
+          "nick": "세트카전단지",
           "count": 2
         },
         {
           "rank": 5,
-          "nick": "세트카전단지",
-          "count": 1
+          "nick": "세티마나",
+          "count": 2
         },
         {
           "rank": 6,
-          "nick": "Minimaxii",
-          "count": 1
+          "nick": "wannabe",
+          "count": 2
         },
         {
           "rank": 7,
-          "nick": "zealot007",
-          "count": 1
+          "nick": "408주종발효",
+          "count": 2
         },
         {
           "rank": 8,
-          "nick": "함바짐사장유나니",
-          "count": 1
+          "nick": "어렵다어려워1",
+          "count": 2
         },
         {
           "rank": 9,
-          "nick": "세티마나",
-          "count": 1
+          "nick": "최초왕따방접",
+          "count": 2
         },
         {
           "rank": 10,
-          "nick": "읔타",
+          "nick": "Minimaxii",
           "count": 1
         }
       ],
@@ -123,7 +123,7 @@
         {
           "rank": 10,
           "nick": "암재인",
-          "count": 301
+          "count": 300
         }
       ],
       "monthly": [
@@ -188,47 +188,47 @@
         },
         {
           "rank": 2,
-          "nick": "dingdiring",
+          "nick": "Minimaxii",
           "count": 2
         },
         {
           "rank": 3,
-          "nick": "댕냥멍꿍",
+          "nick": "내가오늘",
           "count": 2
         },
         {
           "rank": 4,
-          "nick": "Minimaxii",
-          "count": 1
+          "nick": "zealot007",
+          "count": 2
         },
         {
           "rank": 5,
+          "nick": "dingdiring",
+          "count": 2
+        },
+        {
+          "rank": 6,
+          "nick": "댕냥멍꿍",
+          "count": 2
+        },
+        {
+          "rank": 7,
           "nick": "칼피루",
           "count": 1
         },
         {
-          "rank": 6,
+          "rank": 8,
           "nick": "룰루랄랄라랄",
           "count": 1
         },
         {
-          "rank": 7,
+          "rank": 9,
           "nick": "암크예거",
           "count": 1
         },
         {
-          "rank": 8,
-          "nick": "zealot007",
-          "count": 1
-        },
-        {
-          "rank": 9,
-          "nick": "디자인바이",
-          "count": 1
-        },
-        {
           "rank": 10,
-          "nick": "어렵다어려워1",
+          "nick": "낭센세",
           "count": 1
         }
       ],
@@ -361,33 +361,33 @@
         },
         {
           "rank": 5,
+          "nick": "최초왕따방접",
+          "count": 3
+        },
+        {
+          "rank": 6,
           "nick": "칼피루",
           "count": 2
         },
         {
-          "rank": 6,
-          "nick": "dingdiring",
-          "count": 2
-        },
-        {
           "rank": 7,
-          "nick": "보안관지영이",
+          "nick": "zealot007",
           "count": 2
         },
         {
           "rank": 8,
-          "nick": "난착해오토콜환",
+          "nick": "시드니의별",
           "count": 2
         },
         {
           "rank": 9,
-          "nick": "zealot007",
-          "count": 1
+          "nick": "dingdiring",
+          "count": 2
         },
         {
           "rank": 10,
-          "nick": "어렵다어려워1",
-          "count": 1
+          "nick": "wannabe",
+          "count": 2
         }
       ],
       "weekly": [
@@ -399,7 +399,7 @@
         {
           "rank": 2,
           "nick": "암재인",
-          "count": 1193
+          "count": 1186
         },
         {
           "rank": 3,
@@ -505,12 +505,12 @@
         {
           "rank": 2,
           "nick": "함바짐사장유나니",
-          "count": 2
+          "count": 4
         },
         {
           "rank": 3,
           "nick": "낭센세",
-          "count": 2
+          "count": 4
         },
         {
           "rank": 4,
@@ -567,17 +567,17 @@
         {
           "rank": 4,
           "nick": "낭센세",
-          "count": 1270
+          "count": 1271
         },
         {
           "rank": 5,
           "nick": "암레반",
-          "count": 1007
+          "count": 1001
         },
         {
           "rank": 6,
           "nick": "폭탄공장막긴혀따",
-          "count": 936
+          "count": 935
         },
         {
           "rank": 7,
@@ -614,12 +614,12 @@
         {
           "rank": 3,
           "nick": "함바짐사장유나니",
-          "count": 4287
+          "count": 4289
         },
         {
           "rank": 4,
           "nick": "낭센세",
-          "count": 3324
+          "count": 3326
         },
         {
           "rank": 5,
@@ -654,5 +654,5 @@
       ]
     }
   },
-  "errors": 4451
+  "errors": 4459
 }
