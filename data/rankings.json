@@ -1,17 +1,17 @@
 {
-  "generatedAt": "2026-08-23T01:10:39+09:00",
+  "generatedAt": "2026-08-23T01:15:54+09:00",
   "periods": {
     "daily": {
       "start": "2026-08-23T00:00:00+09:00",
-      "end": "2026-08-23T01:10:39+09:00"
+      "end": "2026-08-23T01:15:54+09:00"
     },
     "weekly": {
-      "start": "2026-08-16T01:10:39+09:00",
-      "end": "2026-08-23T01:10:39+09:00"
+      "start": "2026-08-16T01:15:54+09:00",
+      "end": "2026-08-23T01:15:54+09:00"
     },
     "monthly": {
-      "start": "2026-07-24T01:10:39+09:00",
-      "end": "2026-08-23T01:10:39+09:00"
+      "start": "2026-07-24T01:15:54+09:00",
+      "end": "2026-08-23T01:15:54+09:00"
     }
   },
   "metrics": {
@@ -31,47 +31,47 @@
         {
           "rank": 2,
           "nick": "암신사",
-          "count": 13
+          "count": 15
         },
         {
           "rank": 3,
-          "nick": "이런병신같은빌드",
-          "count": 12
+          "nick": "MIRAEDO",
+          "count": 14
         },
         {
           "rank": 4,
-          "nick": "MIRAEDO",
-          "count": 11
+          "nick": "이런병신같은빌드",
+          "count": 14
         },
         {
           "rank": 5,
           "nick": "fRoD",
-          "count": 10
+          "count": 13
         },
         {
           "rank": 6,
-          "nick": "요코",
-          "count": 9
+          "nick": "Minimaxii",
+          "count": 10
         },
         {
           "rank": 7,
-          "nick": "Minimaxii",
-          "count": 8
+          "nick": "함바짐사장유나니",
+          "count": 10
         },
         {
           "rank": 8,
-          "nick": "함바짐사장유나니",
-          "count": 8
+          "nick": "요코",
+          "count": 10
         },
         {
           "rank": 9,
           "nick": "함대길",
-          "count": 7
+          "count": 9
         },
         {
           "rank": 10,
-          "nick": "댕냥멍꿍",
-          "count": 7
+          "nick": "408주종발효",
+          "count": 8
         }
       ],
       "weekly": [
@@ -83,17 +83,17 @@
         {
           "rank": 2,
           "nick": "요코",
-          "count": 556
+          "count": 557
         },
         {
           "rank": 3,
           "nick": "이런병신같은빌드",
-          "count": 516
+          "count": 518
         },
         {
           "rank": 4,
           "nick": "폭탄공장막긴혀따",
-          "count": 423
+          "count": 424
         },
         {
           "rank": 5,
@@ -108,7 +108,7 @@
         {
           "rank": 7,
           "nick": "뚱땡이싫어",
-          "count": 332
+          "count": 333
         },
         {
           "rank": 8,
@@ -118,7 +118,7 @@
         {
           "rank": 9,
           "nick": "암재인",
-          "count": 300
+          "count": 301
         },
         {
           "rank": 10,
@@ -140,7 +140,7 @@
         {
           "rank": 3,
           "nick": "폭탄공장막긴혀따",
-          "count": 793
+          "count": 794
         },
         {
           "rank": 4,
@@ -155,7 +155,7 @@
         {
           "rank": 6,
           "nick": "요코",
-          "count": 649
+          "count": 650
         },
         {
           "rank": 7,
@@ -170,7 +170,7 @@
         {
           "rank": 9,
           "nick": "뚱땡이싫어",
-          "count": 549
+          "count": 550
         },
         {
           "rank": 10,
@@ -189,47 +189,47 @@
         {
           "rank": 2,
           "nick": "요코",
-          "count": 19
+          "count": 21
         },
         {
           "rank": 3,
           "nick": "와접1일차",
-          "count": 18
+          "count": 19
         },
         {
           "rank": 4,
-          "nick": "암퀴단",
+          "nick": "함대길",
           "count": 17
         },
         {
           "rank": 5,
+          "nick": "dingdiring",
+          "count": 17
+        },
+        {
+          "rank": 6,
+          "nick": "암퀴단",
+          "count": 17
+        },
+        {
+          "rank": 7,
           "nick": "암크예거",
           "count": 15
         },
         {
-          "rank": 6,
-          "nick": "dingdiring",
-          "count": 15
-        },
-        {
-          "rank": 7,
+          "rank": 8,
           "nick": "폭탄공장막긴혀따",
           "count": 15
         },
         {
-          "rank": 8,
-          "nick": "함대길",
+          "rank": 9,
+          "nick": "함바짐사장유나니",
           "count": 14
         },
         {
-          "rank": 9,
-          "nick": "이런병신같은빌드",
-          "count": 12
-        },
-        {
           "rank": 10,
-          "nick": "Minimaxii",
-          "count": 11
+          "nick": "이런병신같은빌드",
+          "count": 14
         }
       ],
       "weekly": [
@@ -246,17 +246,17 @@
         {
           "rank": 3,
           "nick": "이런병신같은빌드",
-          "count": 495
+          "count": 497
         },
         {
           "rank": 4,
           "nick": "정전공포증",
-          "count": 429
+          "count": 431
         },
         {
           "rank": 5,
           "nick": "요코",
-          "count": 422
+          "count": 424
         },
         {
           "rank": 6,
@@ -313,7 +313,7 @@
         {
           "rank": 6,
           "nick": "정전공포증",
-          "count": 1097
+          "count": 1099
         },
         {
           "rank": 7,
@@ -323,7 +323,7 @@
         {
           "rank": 8,
           "nick": "함바짐사장유나니",
-          "count": 1027
+          "count": 1030
         },
         {
           "rank": 9,
@@ -342,17 +342,17 @@
         {
           "rank": 1,
           "nick": "함대길",
-          "count": 33
+          "count": 37
         },
         {
           "rank": 2,
           "nick": "함바짐사장유나니",
-          "count": 26
+          "count": 35
         },
         {
           "rank": 3,
           "nick": "요코",
-          "count": 26
+          "count": 28
         },
         {
           "rank": 4,
@@ -361,23 +361,23 @@
         },
         {
           "rank": 5,
-          "nick": "댕냥멍꿍",
+          "nick": "초로기",
           "count": 20
         },
         {
           "rank": 6,
+          "nick": "댕냥멍꿍",
+          "count": 20
+        },
+        {
+          "rank": 7,
           "nick": "암크예거",
           "count": 19
         },
         {
-          "rank": 7,
+          "rank": 8,
           "nick": "와르가르",
           "count": 19
-        },
-        {
-          "rank": 8,
-          "nick": "초로기",
-          "count": 18
         },
         {
           "rank": 9,
@@ -386,8 +386,8 @@
         },
         {
           "rank": 10,
-          "nick": "fRoD",
-          "count": 14
+          "nick": "암신사",
+          "count": 18
         }
       ],
       "weekly": [
@@ -399,17 +399,17 @@
         {
           "rank": 2,
           "nick": "암재인",
-          "count": 1121
+          "count": 1124
         },
         {
           "rank": 3,
           "nick": "이런병신같은빌드",
-          "count": 1001
+          "count": 1005
         },
         {
           "rank": 4,
           "nick": "요코",
-          "count": 816
+          "count": 818
         },
         {
           "rank": 5,
@@ -481,7 +481,7 @@
         {
           "rank": 8,
           "nick": "함바짐사장유나니",
-          "count": 2287
+          "count": 2296
         },
         {
           "rank": 9,
@@ -500,52 +500,52 @@
         {
           "rank": 1,
           "nick": "함바짐사장유나니",
-          "count": 31
+          "count": 33
         },
         {
           "rank": 2,
+          "nick": "낭센세",
+          "count": 27
+        },
+        {
+          "rank": 3,
           "nick": "함바뷔폐척살단",
           "count": 26
         },
         {
-          "rank": 3,
-          "nick": "낭센세",
-          "count": 25
-        },
-        {
           "rank": 4,
           "nick": "폭탄공장막긴혀따",
-          "count": 20
+          "count": 22
         },
         {
           "rank": 5,
-          "nick": "뇌빈이",
-          "count": 17
+          "nick": "요코",
+          "count": 20
         },
         {
           "rank": 6,
-          "nick": "이런병신같은빌드",
-          "count": 15
+          "nick": "뇌빈이",
+          "count": 19
         },
         {
           "rank": 7,
-          "nick": "요코",
-          "count": 13
+          "nick": "이런병신같은빌드",
+          "count": 16
         },
         {
           "rank": 8,
+          "nick": "함대길",
+          "count": 14
+        },
+        {
+          "rank": 9,
           "nick": "보안관지영이",
           "count": 13
         },
         {
-          "rank": 9,
+          "rank": 10,
           "nick": "먼퀴보이면피쌈",
           "count": 13
-        },
-        {
-          "rank": 10,
-          "nick": "함대길",
-          "count": 11
         }
       ],
       "weekly": [
@@ -567,7 +567,7 @@
         {
           "rank": 4,
           "nick": "낭센세",
-          "count": 1265
+          "count": 1267
         },
         {
           "rank": 5,
@@ -577,7 +577,7 @@
         {
           "rank": 6,
           "nick": "폭탄공장막긴혀따",
-          "count": 941
+          "count": 943
         },
         {
           "rank": 7,
@@ -587,17 +587,17 @@
         {
           "rank": 8,
           "nick": "뷰봇궁금",
-          "count": 772
+          "count": 777
         },
         {
           "rank": 9,
-          "nick": "암재인",
-          "count": 679
+          "nick": "fancy-",
+          "count": 677
         },
         {
           "rank": 10,
-          "nick": "fancy-",
-          "count": 676
+          "nick": "암재인",
+          "count": 674
         }
       ],
       "monthly": [
@@ -614,22 +614,22 @@
         {
           "rank": 3,
           "nick": "함바짐사장유나니",
-          "count": 4316
+          "count": 4318
         },
         {
           "rank": 4,
           "nick": "낭센세",
-          "count": 3347
+          "count": 3349
         },
         {
           "rank": 5,
           "nick": "fancy-",
-          "count": 2086
+          "count": 2087
         },
         {
           "rank": 6,
           "nick": "폭탄공장막긴혀따",
-          "count": 1977
+          "count": 1979
         },
         {
           "rank": 7,
@@ -639,7 +639,7 @@
         {
           "rank": 8,
           "nick": "뷰봇궁금",
-          "count": 1761
+          "count": 1766
         },
         {
           "rank": 9,
@@ -654,5 +654,5 @@
       ]
     }
   },
-  "errors": 4577
+  "errors": 4586
 }
