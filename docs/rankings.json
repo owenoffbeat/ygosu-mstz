@@ -1,17 +1,17 @@
 {
-  "generatedAt": "2026-08-22T23:55:30+09:00",
+  "generatedAt": "2026-08-23T00:01:12+09:00",
   "periods": {
     "daily": {
-      "start": "2026-08-22T00:00:00+09:00",
-      "end": "2026-08-22T23:55:30+09:00"
+      "start": "2026-08-23T00:00:00+09:00",
+      "end": "2026-08-23T00:01:12+09:00"
     },
     "weekly": {
-      "start": "2026-08-15T23:55:30+09:00",
-      "end": "2026-08-22T23:55:30+09:00"
+      "start": "2026-08-16T00:01:12+09:00",
+      "end": "2026-08-23T00:01:12+09:00"
     },
     "monthly": {
-      "start": "2026-07-23T23:55:30+09:00",
-      "end": "2026-08-22T23:55:30+09:00"
+      "start": "2026-07-24T00:01:12+09:00",
+      "end": "2026-08-23T00:01:12+09:00"
     }
   },
   "metrics": {
@@ -25,53 +25,13 @@
       "daily": [
         {
           "rank": 1,
-          "nick": "이런병신같은빌드",
-          "count": 142
+          "nick": "랑애",
+          "count": 1
         },
         {
           "rank": 2,
-          "nick": "요코",
-          "count": 124
-        },
-        {
-          "rank": 3,
-          "nick": "디즐라이",
-          "count": 73
-        },
-        {
-          "rank": 4,
-          "nick": "암신사",
-          "count": 71
-        },
-        {
-          "rank": 5,
-          "nick": "폭탄공장막긴혀따",
-          "count": 68
-        },
-        {
-          "rank": 6,
-          "nick": "암재인",
-          "count": 67
-        },
-        {
-          "rank": 7,
-          "nick": "사랑하지맙시다",
-          "count": 64
-        },
-        {
-          "rank": 8,
-          "nick": "블랙하지마요",
-          "count": 64
-        },
-        {
-          "rank": 9,
-          "nick": "와르가르",
-          "count": 59
-        },
-        {
-          "rank": 10,
-          "nick": "정전공포증",
-          "count": 58
+          "nick": "댕냥멍꿍",
+          "count": 1
         }
       ],
       "weekly": [
@@ -83,47 +43,47 @@
         {
           "rank": 2,
           "nick": "요코",
-          "count": 579
+          "count": 556
         },
         {
           "rank": 3,
           "nick": "이런병신같은빌드",
-          "count": 503
+          "count": 504
         },
         {
           "rank": 4,
           "nick": "폭탄공장막긴혀따",
-          "count": 491
+          "count": 422
         },
         {
           "rank": 5,
           "nick": "윤환의검",
-          "count": 396
+          "count": 342
         },
         {
           "rank": 6,
           "nick": "정전공포증",
-          "count": 353
-        },
-        {
-          "rank": 7,
-          "nick": "품격",
-          "count": 339
-        },
-        {
-          "rank": 8,
-          "nick": "뚱땡이싫어",
           "count": 338
         },
         {
-          "rank": 9,
+          "rank": 7,
+          "nick": "뚱땡이싫어",
+          "count": 331
+        },
+        {
+          "rank": 8,
           "nick": "먼먼",
-          "count": 327
+          "count": 321
+        },
+        {
+          "rank": 9,
+          "nick": "암재인",
+          "count": 302
         },
         {
           "rank": 10,
-          "nick": "함대길",
-          "count": 313
+          "nick": "품격",
+          "count": 301
         }
       ],
       "monthly": [
@@ -150,7 +110,7 @@
         {
           "rank": 5,
           "nick": "보안관지영이",
-          "count": 686
+          "count": 687
         },
         {
           "rank": 6,
@@ -183,105 +143,70 @@
       "daily": [
         {
           "rank": 1,
-          "nick": "이런병신같은빌드",
-          "count": 130
+          "nick": "Minimaxii",
+          "count": 1
         },
         {
           "rank": 2,
-          "nick": "요코",
-          "count": 80
+          "nick": "사이버펑크",
+          "count": 1
         },
         {
           "rank": 3,
-          "nick": "함바뷔폐척살단",
-          "count": 77
-        },
-        {
-          "rank": 4,
-          "nick": "저그황제김윤환",
-          "count": 74
-        },
-        {
-          "rank": 5,
-          "nick": "성흠이",
-          "count": 64
-        },
-        {
-          "rank": 6,
-          "nick": "디즐라이",
-          "count": 56
-        },
-        {
-          "rank": 7,
-          "nick": "폭탄공장막긴혀따",
-          "count": 55
-        },
-        {
-          "rank": 8,
-          "nick": "암버러지",
-          "count": 54
-        },
-        {
-          "rank": 9,
-          "nick": "정전공포증",
-          "count": 48
-        },
-        {
-          "rank": 10,
-          "nick": "미마루",
-          "count": 42
+          "nick": "최초왕따방접",
+          "count": 1
         }
       ],
       "weekly": [
         {
           "rank": 1,
           "nick": "함바뷔폐척살단",
-          "count": 658
+          "count": 519
         },
         {
           "rank": 2,
           "nick": "암퀴단",
-          "count": 634
+          "count": 513
         },
         {
           "rank": 3,
-          "nick": "폭탄공장막긴혀따",
-          "count": 620
+          "nick": "이런병신같은빌드",
+          "count": 483
         },
         {
           "rank": 4,
-          "nick": "미마루",
-          "count": 506
+          "nick": "정전공포증",
+          "count": 424
         },
         {
           "rank": 5,
-          "nick": "정전공포증",
-          "count": 503
+          "nick": "미마루",
+          "count": 411
         },
         {
           "rank": 6,
-          "nick": "이런병신같은빌드",
-          "count": 481
+          "nick": "요코",
+          "count": 403
         },
         {
           "rank": 7,
-          "nick": "요코",
-          "count": 473
+          "nick": "폭탄공장막긴혀따",
+          "count": 383
         },
         {
           "rank": 8,
-          "nick": "메가도스C",
-          "count": 438
+          "nick": "저그황제김윤환",
+          "count": 330
         },
         {
           "rank": 9,
           "nick": "윤환",
-          "count": 425
+          "count": 297
         },
         {
           "rank": 10,
-          "nick": "함바짐사장유나니",
-          "count": 382
+          "nick": "성흠이",
+          "count": 290
         }
       ],
       "monthly": [
@@ -293,7 +218,7 @@
         {
           "rank": 2,
           "nick": "암퀴단",
-          "count": 1402
+          "count": 1403
         },
         {
           "rank": 3,
@@ -308,7 +233,7 @@
         {
           "rank": 5,
           "nick": "보안관지영이",
-          "count": 1149
+          "count": 1150
         },
         {
           "rank": 6,
@@ -341,105 +266,60 @@
       "daily": [
         {
           "rank": 1,
-          "nick": "이런병신같은빌드",
-          "count": 214
-        },
-        {
-          "rank": 2,
-          "nick": "암재인",
-          "count": 144
-        },
-        {
-          "rank": 3,
-          "nick": "요코",
-          "count": 120
-        },
-        {
-          "rank": 4,
-          "nick": "미마루",
-          "count": 119
-        },
-        {
-          "rank": 5,
-          "nick": "디즐라이",
-          "count": 108
-        },
-        {
-          "rank": 6,
-          "nick": "저그황제김윤환",
-          "count": 89
-        },
-        {
-          "rank": 7,
-          "nick": "함바뷔폐척살단",
-          "count": 81
-        },
-        {
-          "rank": 8,
-          "nick": "암신사",
-          "count": 79
-        },
-        {
-          "rank": 9,
-          "nick": "윤환의검",
-          "count": 76
-        },
-        {
-          "rank": 10,
-          "nick": "똥떼르만",
-          "count": 75
+          "nick": "댕냥멍꿍",
+          "count": 2
         }
       ],
       "weekly": [
         {
           "rank": 1,
           "nick": "미마루",
-          "count": 1574
+          "count": 1354
         },
         {
           "rank": 2,
-          "nick": "메가도스C",
-          "count": 1445
+          "nick": "암재인",
+          "count": 1198
         },
         {
           "rank": 3,
-          "nick": "암재인",
-          "count": 1245
-        },
-        {
-          "rank": 4,
-          "nick": "품격",
-          "count": 1154
-        },
-        {
-          "rank": 5,
           "nick": "이런병신같은빌드",
           "count": 991
         },
         {
+          "rank": 4,
+          "nick": "품격",
+          "count": 842
+        },
+        {
+          "rank": 5,
+          "nick": "요코",
+          "count": 801
+        },
+        {
           "rank": 6,
-          "nick": "함바뷔폐척살단",
-          "count": 969
+          "nick": "먼먼",
+          "count": 792
         },
         {
           "rank": 7,
-          "nick": "폭탄공장막긴혀따",
-          "count": 967
+          "nick": "메가도스C",
+          "count": 758
         },
         {
           "rank": 8,
-          "nick": "암퀴단",
-          "count": 958
+          "nick": "함바뷔폐척살단",
+          "count": 751
         },
         {
           "rank": 9,
           "nick": "낭센세",
-          "count": 933
+          "count": 729
         },
         {
           "rank": 10,
-          "nick": "요코",
-          "count": 878
+          "nick": "암퀴단",
+          "count": 711
         }
       ],
       "monthly": [
@@ -486,7 +366,7 @@
         {
           "rank": 9,
           "nick": "보안관지영이",
-          "count": 2247
+          "count": 2248
         },
         {
           "rank": 10,
@@ -499,53 +379,18 @@
       "daily": [
         {
           "rank": 1,
-          "nick": "성흠이",
-          "count": 671
+          "nick": "랑애",
+          "count": 2
         },
         {
           "rank": 2,
-          "nick": "암재인",
-          "count": 153
+          "nick": "어나더스토리",
+          "count": 1
         },
         {
           "rank": 3,
-          "nick": "낭센세",
-          "count": 136
-        },
-        {
-          "rank": 4,
-          "nick": "요코",
-          "count": 110
-        },
-        {
-          "rank": 5,
-          "nick": "이런병신같은빌드",
-          "count": 109
-        },
-        {
-          "rank": 6,
-          "nick": "폭탄공장막긴혀따",
-          "count": 108
-        },
-        {
-          "rank": 7,
-          "nick": "미마루",
-          "count": 105
-        },
-        {
-          "rank": 8,
-          "nick": "함바뷔폐척살단",
-          "count": 81
-        },
-        {
-          "rank": 9,
-          "nick": "닝닝바라기",
-          "count": 79
-        },
-        {
-          "rank": 10,
-          "nick": "랑애",
-          "count": 78
+          "nick": "내가오늘",
+          "count": 1
         }
       ],
       "weekly": [
@@ -567,17 +412,17 @@
         {
           "rank": 4,
           "nick": "낭센세",
-          "count": 1273
+          "count": 1270
         },
         {
           "rank": 5,
           "nick": "암레반",
-          "count": 1007
+          "count": 1008
         },
         {
           "rank": 6,
           "nick": "폭탄공장막긴혀따",
-          "count": 938
+          "count": 937
         },
         {
           "rank": 7,
@@ -619,7 +464,7 @@
         {
           "rank": 4,
           "nick": "낭센세",
-          "count": 3321
+          "count": 3322
         },
         {
           "rank": 5,
@@ -649,10 +494,10 @@
         {
           "rank": 10,
           "nick": "암레반",
-          "count": 1445
+          "count": 1446
         }
       ]
     }
   },
-  "errors": 4428
+  "errors": 4436
 }
