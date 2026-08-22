@@ -1,17 +1,17 @@
 {
-  "generatedAt": "2026-08-23T00:01:12+09:00",
+  "generatedAt": "2026-08-23T00:05:43+09:00",
   "periods": {
     "daily": {
       "start": "2026-08-23T00:00:00+09:00",
-      "end": "2026-08-23T00:01:12+09:00"
+      "end": "2026-08-23T00:05:43+09:00"
     },
     "weekly": {
-      "start": "2026-08-16T00:01:12+09:00",
-      "end": "2026-08-23T00:01:12+09:00"
+      "start": "2026-08-16T00:05:43+09:00",
+      "end": "2026-08-23T00:05:43+09:00"
     },
     "monthly": {
-      "start": "2026-07-24T00:01:12+09:00",
-      "end": "2026-08-23T00:01:12+09:00"
+      "start": "2026-07-24T00:05:43+09:00",
+      "end": "2026-08-23T00:05:43+09:00"
     }
   },
   "metrics": {
@@ -25,12 +25,52 @@
       "daily": [
         {
           "rank": 1,
-          "nick": "랑애",
-          "count": 1
+          "nick": "열받은상태",
+          "count": 3
         },
         {
           "rank": 2,
           "nick": "댕냥멍꿍",
+          "count": 3
+        },
+        {
+          "rank": 3,
+          "nick": "세트카전단지",
+          "count": 1
+        },
+        {
+          "rank": 4,
+          "nick": "Minimaxii",
+          "count": 1
+        },
+        {
+          "rank": 5,
+          "nick": "암크예거",
+          "count": 1
+        },
+        {
+          "rank": 6,
+          "nick": "dingdiring",
+          "count": 1
+        },
+        {
+          "rank": 7,
+          "nick": "어렵다어려워1",
+          "count": 1
+        },
+        {
+          "rank": 8,
+          "nick": "랑애",
+          "count": 1
+        },
+        {
+          "rank": 9,
+          "nick": "보안관지영이",
+          "count": 1
+        },
+        {
+          "rank": 10,
+          "nick": "츠캄이좋다",
           "count": 1
         }
       ],
@@ -38,12 +78,12 @@
         {
           "rank": 1,
           "nick": "유난이삐져또",
-          "count": 610
+          "count": 609
         },
         {
           "rank": 2,
           "nick": "요코",
-          "count": 556
+          "count": 555
         },
         {
           "rank": 3,
@@ -58,7 +98,7 @@
         {
           "rank": 5,
           "nick": "윤환의검",
-          "count": 342
+          "count": 341
         },
         {
           "rank": 6,
@@ -77,12 +117,12 @@
         },
         {
           "rank": 9,
-          "nick": "암재인",
-          "count": 302
+          "nick": "품격",
+          "count": 301
         },
         {
           "rank": 10,
-          "nick": "품격",
+          "nick": "암재인",
           "count": 301
         }
       ],
@@ -110,7 +150,7 @@
         {
           "rank": 5,
           "nick": "보안관지영이",
-          "count": 687
+          "count": 688
         },
         {
           "rank": 6,
@@ -135,7 +175,7 @@
         {
           "rank": 10,
           "nick": "dingdiring",
-          "count": 526
+          "count": 527
         }
       ]
     },
@@ -143,16 +183,51 @@
       "daily": [
         {
           "rank": 1,
+          "nick": "dingdiring",
+          "count": 2
+        },
+        {
+          "rank": 2,
+          "nick": "댕냥멍꿍",
+          "count": 2
+        },
+        {
+          "rank": 3,
           "nick": "Minimaxii",
           "count": 1
         },
         {
-          "rank": 2,
+          "rank": 4,
+          "nick": "칼피루",
+          "count": 1
+        },
+        {
+          "rank": 5,
+          "nick": "암크예거",
+          "count": 1
+        },
+        {
+          "rank": 6,
+          "nick": "영상따줘",
+          "count": 1
+        },
+        {
+          "rank": 7,
+          "nick": "블랙하지마요",
+          "count": 1
+        },
+        {
+          "rank": 8,
+          "nick": "암퀴단",
+          "count": 1
+        },
+        {
+          "rank": 9,
           "nick": "사이버펑크",
           "count": 1
         },
         {
-          "rank": 3,
+          "rank": 10,
           "nick": "최초왕따방접",
           "count": 1
         }
@@ -166,7 +241,7 @@
         {
           "rank": 2,
           "nick": "암퀴단",
-          "count": 513
+          "count": 514
         },
         {
           "rank": 3,
@@ -218,7 +293,7 @@
         {
           "rank": 2,
           "nick": "암퀴단",
-          "count": 1403
+          "count": 1404
         },
         {
           "rank": 3,
@@ -267,7 +342,52 @@
         {
           "rank": 1,
           "nick": "댕냥멍꿍",
+          "count": 6
+        },
+        {
+          "rank": 2,
+          "nick": "열받은상태",
+          "count": 4
+        },
+        {
+          "rank": 3,
+          "nick": "칼피루",
           "count": 2
+        },
+        {
+          "rank": 4,
+          "nick": "dingdiring",
+          "count": 2
+        },
+        {
+          "rank": 5,
+          "nick": "보안관지영이",
+          "count": 2
+        },
+        {
+          "rank": 6,
+          "nick": "난착해오토콜환",
+          "count": 2
+        },
+        {
+          "rank": 7,
+          "nick": "암크예거",
+          "count": 1
+        },
+        {
+          "rank": 8,
+          "nick": "어렵다어려워1",
+          "count": 1
+        },
+        {
+          "rank": 9,
+          "nick": "영상따줘",
+          "count": 1
+        },
+        {
+          "rank": 10,
+          "nick": "블랙하지마요",
+          "count": 1
         }
       ],
       "weekly": [
@@ -279,7 +399,7 @@
         {
           "rank": 2,
           "nick": "암재인",
-          "count": 1198
+          "count": 1193
         },
         {
           "rank": 3,
@@ -366,7 +486,7 @@
         {
           "rank": 9,
           "nick": "보안관지영이",
-          "count": 2248
+          "count": 2250
         },
         {
           "rank": 10,
@@ -379,17 +499,52 @@
       "daily": [
         {
           "rank": 1,
+          "nick": "보안관지영이",
+          "count": 3
+        },
+        {
+          "rank": 2,
           "nick": "랑애",
           "count": 2
         },
         {
-          "rank": 2,
+          "rank": 3,
+          "nick": "종카쿠",
+          "count": 2
+        },
+        {
+          "rank": 4,
+          "nick": "TCTCTC",
+          "count": 2
+        },
+        {
+          "rank": 5,
           "nick": "어나더스토리",
           "count": 1
         },
         {
-          "rank": 3,
+          "rank": 6,
+          "nick": "칼피루",
+          "count": 1
+        },
+        {
+          "rank": 7,
           "nick": "내가오늘",
+          "count": 1
+        },
+        {
+          "rank": 8,
+          "nick": "낭센세",
+          "count": 1
+        },
+        {
+          "rank": 9,
+          "nick": "댕냥멍꿍",
+          "count": 1
+        },
+        {
+          "rank": 10,
+          "nick": "암재인",
           "count": 1
         }
       ],
@@ -437,7 +592,7 @@
         {
           "rank": 9,
           "nick": "암재인",
-          "count": 714
+          "count": 715
         },
         {
           "rank": 10,
@@ -464,7 +619,7 @@
         {
           "rank": 4,
           "nick": "낭센세",
-          "count": 3322
+          "count": 3323
         },
         {
           "rank": 5,
@@ -499,5 +654,5 @@
       ]
     }
   },
-  "errors": 4436
+  "errors": 4447
 }
